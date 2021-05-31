@@ -8,12 +8,21 @@ class AllController extends Controller
 {
     public function home() {
         // $about = About::all();
-        // $testimonials = Skill::all();
-        // $services = Projet::all();
-        // $articles = Contact::all();
-        // $team = Fact::all();
-        // $contact = Service::paginate(3)->fragment('services');
         return view('home');
     }
+    public function services(){
+        // $contact = Service::paginate(9)->fragment('services');
+        return view('services');
+    }
+    public function blog(){
+        // $articles = Service::paginate(3)->fragment('services');
+        return view('blog');
+    }
+    public function blogp(){
+        // $articles = Service::paginate(3)->fragment('services');
+        return view('blog-post');
+    }
+    public function contact(){
+        return view('contact');
+    }
 }
-// compact('about', 'testimonials', 'services', 'articles', 'team', 'contact')

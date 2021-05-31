@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AllController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,12 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+// Front
+Route::get('/', [AllController::class, 'home'])->name('home');
+Route::get('/services', [AllController::class, 'services'])->name('services');
+Route::get('/blog', [AllController::class, 'blog'])->name('blog');
+Route::get('/blog-post', [AllController::class, 'blogp'])->name('blog-post');
+Route::get('/contact', [AllController::class, 'contact'])->name('contact');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
+
+Route::get('labslogin', function () {
+    return view('/admin/dashboard');
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
