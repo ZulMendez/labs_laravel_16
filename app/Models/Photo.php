@@ -12,4 +12,15 @@ class Photo extends Model
     {
         return $this->hasMany(User::class);
     }
+
+    public function testimonials()
+    {
+        return $this->hasMany(Testimonial::class);
+    }
+
+    public function teams()
+    {
+        return $this->hasMany(Team::class);
+    }
+
 }

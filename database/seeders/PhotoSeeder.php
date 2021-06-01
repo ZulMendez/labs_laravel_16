@@ -31,6 +31,18 @@ class PhotoSeeder extends Seeder
                 'url' => '4.jpg',
                 'created_at' => now(),
             ],
+            [
+                'url' => 'avatar/01.jpg',
+                'created_at' => now(),
+            ],
+            [
+                'url' => 'avatar/02.jpg',
+                'created_at' => now(),
+            ],
+            [
+                'url' => 'avatar/03.jpg',
+                'created_at' => now(),
+            ],
         ]);
     }
 }

@@ -2,16 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Discover;
+use App\Models\Logo;
+use App\Models\Service;
+use App\Models\Testimonial;
 use Illuminate\Http\Request;
 
 class AllController extends Controller
 {
     public function home() {
-        // $about = About::all();
-        return view('home');
+        $logo = Logo::find(1);
+        $services3 = Service::inRandomOrder()->limit(3)->get();
+        $services9 = Service::inRandomOrder()->limit(9)->get();
+        $discovers = Discover::all();
+        $testimonials = Testimonial::all();
+
+        return view('home', compact('logo', 'services3', 'services9', 'discovers', 'testimonials'));
     }
     public function services(){
-        // $contact = Service::paginate(9)->fragment('services');
         return view('services');
     }
     public function blog(){

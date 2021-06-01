@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Testimonial;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -20,6 +21,15 @@ class DatabaseSeeder extends Seeder
             PhotoSeeder::class,
             PosteSeeder::class,
 
+            CarouselSeeder::class,
+            DiscoverSeeder::class,
+            LogoSeeder::class,
+            ReadySeeder::class,
+            VideoSeeder::class,
+            ServiceSeeder::class,
+            
+            TeamSeeder::class,
+            TestimonialSeeder::class,
             UserSeeder::class,
         ]);
     }
