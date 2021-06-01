@@ -21,9 +21,13 @@ Route::get('/blog', [AllController::class, 'blog'])->name('blog');
 Route::get('/blog-post', [AllController::class, 'blogp'])->name('blog-post');
 Route::get('/contact', [AllController::class, 'contact'])->name('contact');
 
+// Back
 
+
+// Auth
 Route::get('labslogin', function () {
     return view('/admin/dashboard');
 })->middleware(['auth'])->name('dashboard');
+
 
 require __DIR__.'/auth.php';
