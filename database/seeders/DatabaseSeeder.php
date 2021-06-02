@@ -20,14 +20,13 @@ class DatabaseSeeder extends Seeder
             GenreSeeder::class,
             PhotoSeeder::class,
             PosteSeeder::class,
-
             CarouselSeeder::class,
             DiscoverSeeder::class,
             LogoSeeder::class,
             ReadySeeder::class,
             VideoSeeder::class,
             ServiceSeeder::class,
-            
+            ArticleSeeder::class, 
             TeamSeeder::class,
             TestimonialSeeder::class,
             UserSeeder::class,

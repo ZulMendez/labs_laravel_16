@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
 use App\Models\Carousel;
 use App\Models\Discover;
 use App\Models\Logo;
@@ -32,7 +33,8 @@ class AllController extends Controller
         $logo = Logo::find(1);
         $left = Service::inRandomOrder()->limit(3)->get();
         // $right = Service::where('id', '>', 3)->get();
-        return view('services', compact('services', 'logo', 'left'));
+        $articles = Article::all();
+        return view('services', compact('services', 'logo', 'left', 'articles'));
     }
 
     public function blog(){
