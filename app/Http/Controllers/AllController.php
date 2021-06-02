@@ -27,14 +27,13 @@ class AllController extends Controller
         $readies = Ready::all();
         return view('home', compact('logo', 'video', 'carousel', 'services3', 'services9', 'discovers', 'testimonials', 'team', 'readies'));
     }
-
+    
     public function services(){
         $services = Service::paginate(9)->fragment('servicePaginate');
         $logo = Logo::find(1);
-        $left = Service::inRandomOrder()->limit(3)->get();
-        // $right = Service::where('id', '>', 3)->get();
+        $features = Service::inRandomOrder()->limit(3)->get();
         $articles = Article::all();
-        return view('services', compact('services', 'logo', 'left', 'articles'));
+        return view('services', compact('services', 'logo', 'features', 'articles'));
     }
 
     public function blog(){

@@ -35,7 +35,7 @@
             </div>
             @endforeach
         </div>
-        <div class="container col-3">
+        <div class="text-center">
             {{$services->links('vendor.pagination.simple-default')}}
         </div>
     </div>
@@ -51,10 +51,9 @@
             <h2>Get in <span>the Lab</span> and  discover the world</h2>
         </div>
         <div class="row">
-
             <!-- feature item -->
             <div class="col-md-4 col-sm-4 features">
-                @foreach ($left as $item)
+                @foreach ($features as $item)
                 <div class="icon-box light left">
                     <div class="service-text">
                         <h2>{{$item->titre}}</h2>
@@ -74,7 +73,7 @@
             </div>
             <!-- feature item -->
             <div class="col-md-4 col-sm-4 features">
-                @foreach ($left as $item)
+                @foreach ($features as $item)
                     <div class="icon-box light">
                         <div class="icon">
                             <i class="{{$item->icone}}"></i>
@@ -93,7 +92,6 @@
     </div>
 </div>
 <!-- features section end-->
-
 
 <!-- services card section-->
 <div class="services-card-section spad">
@@ -117,7 +115,6 @@
     </div>
 </div>
 <!-- services card section end-->
-
 
 <!-- newsletter section -->
 <div class="newsletter-section spad">
