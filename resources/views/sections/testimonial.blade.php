@@ -10,7 +10,6 @@
                 <div class="owl-carousel" id="testimonial-slide">
                     <!-- single testimonial -->
                     @foreach ($testimonials as $item)
-                        
                     <div class="testimonial">
                         <span>‘​‌‘​‌</span>
                         <p>{{$item->avis}}</p>
@@ -25,7 +24,6 @@
                         </div>
                     </div>
                     @endforeach
-                    
                 </div>
             </div>
         </div>

@@ -18,13 +18,13 @@ class TeamSeeder extends Seeder
             [
                 'nom' => 'Christinne Williams',
                 'photo_id' => 1,
-                'poste_id' => 1,
+                'poste_id' => 3,
                 'created_at' => now(),
             ],
             [
                 'nom' => 'Marie de la Croix',
                 'photo_id' => 2,
-                'poste_id' => 3,
+                'poste_id' => 1,
                 'created_at' => now(),
             ],
             [
