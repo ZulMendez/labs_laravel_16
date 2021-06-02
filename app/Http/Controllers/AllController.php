@@ -28,7 +28,11 @@ class AllController extends Controller
     }
 
     public function services(){
-        return view('services');
+        $services = Service::paginate(9)->fragment('servicePaginate');
+        $logo = Logo::find(1);
+        $left = Service::inRandomOrder()->limit(3)->get();
+        // $right = Service::where('id', '>', 3)->get();
+        return view('services', compact('services', 'logo', 'left'));
     }
 
     public function blog(){

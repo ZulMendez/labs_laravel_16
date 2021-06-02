@@ -70,13 +70,13 @@ class ServiceSeeder extends Seeder
                 'created_at' => now(),
             ],
             [
-                'icone' => 'flaticon-018-laptop-1',
+                'icone' => 'flaticon-002-caliper',
                 'titre' => 'Tech', 
                 'texte' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..',
                 'created_at' => now(),
             ],
             [
-                'icone' => 'flaticon-043-sketch',
+                'icone' => 'flaticon-019-coffee-cup',
                 'titre' => 'Retina ready', 
                 'texte' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..',
                 'created_at' => now(),
@@ -88,7 +88,7 @@ class ServiceSeeder extends Seeder
                 'created_at' => now(),
             ],
             [
-                'icone' => 'flaticon-023-flask',
+                'icone' => 'flaticon-020-creativity',
                 'titre' => 'Creation & execution', 
                 'texte' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..',
                 'created_at' => now(),
@@ -100,7 +100,7 @@ class ServiceSeeder extends Seeder
                 'created_at' => now(),
             ],
             [
-                'icone' => 'flaticon-037-idea',
+                'icone' => 'flaticon-025-imagination',
                 'titre' => 'Marketing plan', 
                 'texte' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..',
                 'created_at' => now(),
@@ -118,7 +118,7 @@ class ServiceSeeder extends Seeder
                 'created_at' => now(),
             ],
             [
-                'icone' => 'flaticon-043-sketch',
+                'icone' => 'flaticon-008-team',
                 'titre' => 'Online marketing', 
                 'texte' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..',
                 'created_at' => now(),
