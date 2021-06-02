@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Blog;
 use App\Models\Carousel;
+use App\Models\Categorie;
 use App\Models\Discover;
 use App\Models\Logo;
 use App\Models\Ready;
 use App\Models\Service;
+use App\Models\Tag;
 use App\Models\Team;
 use App\Models\Testimonial;
 use App\Models\Video;
@@ -27,7 +30,7 @@ class AllController extends Controller
         $readies = Ready::all();
         return view('home', compact('logo', 'video', 'carousel', 'services3', 'services9', 'discovers', 'testimonials', 'team', 'readies'));
     }
-    
+
     public function services(){
         $services = Service::paginate(9)->fragment('servicePaginate');
         $logo = Logo::find(1);
@@ -37,8 +40,11 @@ class AllController extends Controller
     }
 
     public function blog(){
-        
-        return view('blog');
+        $posts = Blog::paginate(3)->fragment('blogPaginate');
+        $categories = Categorie::all();
+        $blog = Blog::all();
+        $tags = Tag::all();
+        return view('blog', compact('posts', 'categories', 'blog', 'tags'));
     }
 
     public function blogp(){
