@@ -48,8 +48,10 @@ class AllController extends Controller
     }
 
     public function blogp(){
-        
-        return view('blog-post');
+        $categories = Categorie::all();
+        $blog = Blog::all();
+        $tags = Tag::all();
+        return view('blog-post', compact('categories', 'blog', 'tags'));
     }
     public function contact(){
         return view('contact');

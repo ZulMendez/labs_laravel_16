@@ -20,6 +20,9 @@ class CreateTestimonialsTable extends Migration
             
             $table->unsignedBigInteger('photo_id');
             $table->foreign('photo_id')->references('id')->on('photos');
+
+            $table->unsignedBigInteger('poste_id');
+            $table->foreign('poste_id')->references('id')->on('postes');
             
             $table->timestamps();
         });

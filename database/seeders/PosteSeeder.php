@@ -31,6 +31,10 @@ class PosteSeeder extends Seeder
                 'titre' => 'PROJECT MANAGER',
                 'created_at' => now(),
             ],
+            [
+                'titre' => 'MANAGER',
+                'created_at' => now(),
+            ],
         ]);
     }
 }

@@ -12,9 +12,12 @@ class Poste extends Model
     {
         return $this->hasMany(User::class);
     }
-    
+    public function testimonials()
+    {
+        return $this->hasMany(Teams::class);
+    }
     public function teams()
     {
-        return $this->hasMany(Testimonial::class);
+        return $this->hasMany(Teams::class);
     }
 }

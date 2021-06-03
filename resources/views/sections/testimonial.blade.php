@@ -19,7 +19,7 @@
                             </div>
                             <div class="client-name">
                                 <h2>{{$item->nom}}</h2>
-                                <p>CEO Company</p>
+                                <p>{{$item->poste->titre}}</p>
                             </div>
                         </div>
                     </div>

@@ -16,7 +16,7 @@ class CreateReadiesTable extends Migration
         Schema::create('readies', function (Blueprint $table) {
             $table->id();
             $table->string('titre');
-            $table->string('texte');
+            $table->string('texte', 76);
             $table->timestamps();
         });
     }
