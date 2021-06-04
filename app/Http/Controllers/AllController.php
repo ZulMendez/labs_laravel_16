@@ -25,23 +25,28 @@ class AllController extends Controller
         $logo = Logo::find(1);
         $video = Video::all();
         $carousel = Carousel::all();
+
         // SERVICES
         $services = Service::all();
         $services3 = Service::inRandomOrder()->limit(3)->get();
         $services9 = Service::inRandomOrder()->limit(9)->get();
+
         // DISCOVER
         $discovers = Discover::all();
         //TESTIMONIALS
         $testimonials = Testimonial::all();
         // TEAM
         $team = Team::all();
+
         $team = Team::where('poste_id', '>', 1)->get();
-        $teamC = $team->random(2);
+        $teamC = $team->random(3);
 
         $ceo = Team::where('poste_id', 1)->get();
         $centre = $ceo->random(1);
+
         //PHOTOS
         $photos = Photo::all();
+        
         //READY
         $readies = Ready::all();
         return view('home', compact('logo', 'video', 'services', 'carousel', 'services3', 'services9', 'discovers', 'testimonials', 'centre', 'team', 'teamC', 'photos', 'readies'));

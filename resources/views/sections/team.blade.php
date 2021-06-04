@@ -9,15 +9,15 @@
             <!-- single member -->
             <div class="col-sm-4">
                 <div class="member">
-                    <img src="img/team/1.jpg" alt="">
-                    <h2>{{$teamC[1]->nom}}</h2>
-                    <h3>{{$teamC[1]->poste->titre}}</h3>
+                    <img src="{{asset('img/team/' . $teamC[2]->photo->url)}}" alt="">
+                    <h2>{{$teamC[2]->nom}}</h2>
+                    <h3>{{$teamC[2]->poste->titre}}</h3>
                 </div>
             </div>
             <!-- single member -->
             <div class="col-sm-4">
                 <div class="member">
-                    <img src="img/team/2.jpg" alt="">
+                    <img src="{{asset('img/team/' . $centre[0]->photo->url)}}" alt="">
                     <h2>{{$centre[0]->nom}}</h2>
                     <h3>{{$centre[0]->poste->titre}}</h3>
                 </div>
@@ -25,9 +25,9 @@
             <!-- single member -->
             <div class="col-sm-4">
                 <div class="member">
-                    <img src="img/team/3.jpg" alt="">
-                    <h2>{{$teamC[0]->nom}}</h2>
-                    <h3>{{$teamC[0]->poste->titre}}</h3>
+                    <img src="{{asset('img/team/' . $teamC[1]->photo->url)}}" alt="">
+                    <h2>{{$teamC[1]->nom}}</h2>
+                    <h3>{{$teamC[1]->poste->titre}}</h3>
                 </div>
             </div> 
         </div>
