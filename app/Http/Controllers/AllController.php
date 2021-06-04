@@ -8,6 +8,7 @@ use App\Models\Carousel;
 use App\Models\Categorie;
 use App\Models\Discover;
 use App\Models\Logo;
+use App\Models\Photo;
 use App\Models\Ready;
 use App\Models\Service;
 use App\Models\Tag;
@@ -22,13 +23,16 @@ class AllController extends Controller
         $logo = Logo::find(1);
         $video = Video::all();
         $carousel = Carousel::all();
+        $services = Service::all();
         $services3 = Service::inRandomOrder()->limit(3)->get();
         $services9 = Service::inRandomOrder()->limit(9)->get();
         $discovers = Discover::all();
         $testimonials = Testimonial::all();
         $team = Team::all();
+        $teamC = Team::where('poste_id', 1)->get();
+        $photos = Photo::all();
         $readies = Ready::all();
-        return view('home', compact('logo', 'video', 'carousel', 'services3', 'services9', 'discovers', 'testimonials', 'team', 'readies'));
+        return view('home', compact('logo', 'video', 'services', 'carousel', 'services3', 'services9', 'discovers', 'testimonials', 'team', 'teamC', 'photos', 'readies'));
     }
 
     public function services(){

@@ -12,8 +12,8 @@
                         <div class="icon">
                             <i class="{{$service->icone}}"></i>
                         </div>
-                        <h2>{{$service->titre}}</h2>
-                        <p>{{$service->texte}}</p>
+                        <h2>{{$service->soustitre}}</h2>
+                        <p>{{$service->description}}</p>
                     </div>
                 </div>
                 @endforeach
@@ -31,6 +31,7 @@
                 <h2>{{$discovers[0]->titre}}</h2>
             </div>
             
+
             <div class="row">
                 @foreach ($discovers as $item)
                 <div class="col-md-6">
@@ -48,7 +49,7 @@
                     @foreach ($video as $item)
                     <div class="col-md-8 col-md-offset-2">
                         <img src="{{asset('img/' . $item->url)}}" alt="">
-                        <a href="https://www.youtube.com/watch?v=JgHfx2v9zOU" class="video-popup">
+                        <a href="{{$item->lien}}" class="video-popup">
                             <i class="fa fa-play"></i>
                         </a>
                     </div>

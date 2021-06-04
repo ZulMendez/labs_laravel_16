@@ -17,7 +17,7 @@
 <div class="services-section spad">
     <div class="container">
         <div class="section-title dark">
-            <h2>Get in <span>the Lab</span> and see the services</h2>
+            <h2>{{$services[0]->titre}}</h2>
         </div>
         <div class="row">
             <!-- single service -->
@@ -28,8 +28,8 @@
                         <i class="{{$service->icone}}"></i>
                     </div>
                     <div class="service-text">
-                        <h2>{{$service->titre}}</h2>
-                        <p>{{$service->texte}}</p>
+                        <h2>{{$service->soustitre}}</h2>
+                        <p>{{$service->description}}</p>
                     </div>
                 </div>
             </div>
@@ -48,7 +48,7 @@
     <div class="overlay"></div>
     <div class="container">
         <div class="section-title">
-            <h2>Get in <span>the Lab</span> and  discover the world</h2>
+            <h2>{{$services[1]->titre}}</h2>
         </div>
         <div class="row">
             <!-- feature item -->
@@ -56,8 +56,8 @@
                 @foreach ($features as $item)
                 <div class="icon-box light left">
                     <div class="service-text">
-                        <h2>{{$item->titre}}</h2>
-                        <p>{{$item->texte}}</p>
+                        <h2>{{$item->soustitre}}</h2>
+                        <p>{{$item->description}}</p>
                     </div>
                     <div class="icon">
                         <i class="{{$item->icone}}"></i>
@@ -79,8 +79,8 @@
                             <i class="{{$item->icone}}"></i>
                         </div>
                         <div class="service-text">
-                            <h2>{{$item->titre}}</h2>
-                            <p>{{$item->texte}}</p>
+                            <h2>{{$item->soustitre}}</h2>
+                            <p>{{$item->description}}</p>
                         </div>
                     </div>
                 @endforeach

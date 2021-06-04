@@ -2,7 +2,7 @@
 <div class="services-section spad">
     <div class="container">
         <div class="section-title dark">
-            <h2>Get in <span>the Lab</span> and see the services</h2>
+            <h2>{{$services[1]->titre}}</h2>
         </div>
         <div class="row">
             @foreach ($services9 as $service)
@@ -13,8 +13,8 @@
                         <i class="{{$service->icone}}"></i>
                     </div>
                     <div class="service-text">
-                        <h2>{{$service->titre}}</h2>
-                        <p>{{$service->texte}}</p>
+                        <h2>{{$service->soustitre}}</h2>
+                        <p>{{$service->description}}</p>
                     </div>
                 </div>
             </div>

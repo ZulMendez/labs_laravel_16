@@ -14,7 +14,7 @@ class Poste extends Model
     }
     public function testimonials()
     {
-        return $this->hasMany(Teams::class);
+        return $this->hasMany(Testimonial::class);
     }
     public function teams()
     {

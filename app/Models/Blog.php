@@ -9,6 +9,9 @@ class Blog extends Model
 {
     use HasFactory;
 
+    public function categorie() {
+        return $this->belongsTo(Categorie::class);
+    }
     public function tags() {
         return $this->belongsToMany(Tag::class, 'blogtag', 'blog_id');
     }
