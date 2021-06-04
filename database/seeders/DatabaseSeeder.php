@@ -21,23 +21,24 @@ class DatabaseSeeder extends Seeder
             PhotoSeeder::class,
             PosteSeeder::class,
 
+            UserSeeder::class,
+
             CarouselSeeder::class,
-            DiscoverSeeder::class,
-            LogoSeeder::class,
-            ReadySeeder::class,
             VideoSeeder::class,
-
+            LogoSeeder::class,
+            TestimonialSeeder::class,
+            TeamSeeder::class,
+            ReadySeeder::class,
             ServiceSeeder::class,
+            DiscoverSeeder::class,
             ArticleSeeder::class, 
-
-            BlogSeeder::class,
+            // CommentSeeder::class,
             CategorieSeeder::class,
+            BlogSeeder::class,
             TagSeeder::class,
             BlogtagSeeder::class,
 
-            TeamSeeder::class,
-            TestimonialSeeder::class,
-            UserSeeder::class,
+            
         ]);
     }
 }
