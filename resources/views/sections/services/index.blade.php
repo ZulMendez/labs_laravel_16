@@ -17,7 +17,9 @@
 <div class="services-section spad">
     <div class="container">
         <div class="section-title dark">
-            <h2>{{$services[0]->titre}}</h2>
+            @foreach ($titres as $item)
+                <h2>{{$item->titreService}}</h2>
+            @endforeach
         </div>
         <div class="row">
             <!-- single service -->
@@ -48,7 +50,9 @@
     <div class="overlay"></div>
     <div class="container">
         <div class="section-title">
-            <h2>{{$services[1]->titre}}</h2>
+            @foreach ($titres as $item)
+                <h2>{{$item->titreDiscover}}</h2>
+            @endforeach
         </div>
         <div class="row">
             <!-- feature item -->

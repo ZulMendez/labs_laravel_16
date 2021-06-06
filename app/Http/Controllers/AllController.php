@@ -14,6 +14,7 @@ use App\Models\Service;
 use App\Models\Tag;
 use App\Models\Team;
 use App\Models\Testimonial;
+use App\Models\Titre;
 use App\Models\User;
 use App\Models\Video;
 use Illuminate\Http\Request;
@@ -21,8 +22,15 @@ use Illuminate\Http\Request;
 class AllController extends Controller
 {
     public function home() {
+        // TITRES
+        $titres = Titre::all();
+
+        // $titreDisc = Titre::where('titre_id', 1);
+        // $titreServ = Titre::where('id', 2);
+        // $titreTeam = Titre::where('id', 3);
+
         // ABOUT
-        $logo = Logo::find(1);
+        $logo = Logo::all();
         $video = Video::all();
         $carousel = Carousel::all();
 
@@ -33,8 +41,10 @@ class AllController extends Controller
 
         // DISCOVER
         $discovers = Discover::all();
+
         //TESTIMONIALS
         $testimonials = Testimonial::all();
+
         // TEAM
         $team = Team::all();
 
@@ -49,15 +59,16 @@ class AllController extends Controller
         
         //READY
         $readies = Ready::all();
-        return view('home', compact('logo', 'video', 'services', 'carousel', 'services3', 'services9', 'discovers', 'testimonials', 'centre', 'team', 'teamC', 'photos', 'readies'));
+        return view('home', compact('titres', 'logo', 'video', 'services', 'carousel', 'services3', 'services9', 'discovers', 'testimonials', 'centre', 'team', 'teamC', 'photos', 'readies'));
     }
 
     public function services(){
+        $titres = Titre::all();
         $services = Service::paginate(9)->fragment('servicePaginate');
         $logo = Logo::find(1);
         $features = Service::inRandomOrder()->limit(3)->get();
         $articles = Article::all();
-        return view('services', compact('services', 'logo', 'features', 'articles'));
+        return view('services', compact('titres', 'services', 'logo', 'features', 'articles'));
     }
 
     public function blog(){

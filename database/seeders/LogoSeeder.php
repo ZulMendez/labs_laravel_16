@@ -15,8 +15,11 @@ class LogoSeeder extends Seeder
     public function run()
     {
         DB::table('logos')->insert([
-            'logo' => 'logo.png',
-            'created_at' => now(),
+            [
+                'titreIntro' => 'Get your freebie template now!',
+                'logo' => 'big-logo.png',
+                'created_at' => now(),
+            ],
         ]);
     }
 }

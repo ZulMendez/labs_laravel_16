@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+use App\Models\Newsletter;
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class NewsletterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Newsletter  $newsletter
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Newsletter $newsletter)
     {
         //
     }
@@ -52,10 +52,10 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Newsletter  $newsletter
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Newsletter $newsletter)
     {
         //
     }
@@ -64,33 +64,22 @@ class UserController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Newsletter  $newsletter
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $id)
+    public function update(Request $request, Newsletter $newsletter)
     {
-        if ($request->has('roleForUpdate')) {
-            
-            $request->validate([
-                "role_id" => ["required"]
-            ]);
-            $user = $id;
-            $user->role_id = $request->role_id;
-            $user->save();
-            return redirect()->back();
-        }
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Newsletter  $newsletter
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $id)
+    public function destroy(Newsletter $newsletter)
     {
-        $this->authorize('admin');
-        $id->delete();
-        return redirect()->back();
+        //
     }
 }

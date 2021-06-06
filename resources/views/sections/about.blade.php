@@ -28,7 +28,14 @@
         <div class="container">
             
             <div class="section-title">
-                <h2>{{$discovers[0]->titre}}</h2>
+                    @foreach ($titres as $item)
+                        <h2>{{$item->titreDiscover}}</h2>
+                    @endforeach
+                    {{-- @php
+                        $title1 = str_replace('(', '<span>', $titres->titreDiscover);
+                        $title2 = str_replace(')', '</span>', $title1);
+                        echo $title2;
+                    @endphp --}}
             </div>
             
 

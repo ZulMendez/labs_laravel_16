@@ -20,7 +20,6 @@ class DatabaseSeeder extends Seeder
             GenreSeeder::class,
             PhotoSeeder::class,
             PosteSeeder::class,
-
             UserSeeder::class,
 
             CarouselSeeder::class,
@@ -37,8 +36,7 @@ class DatabaseSeeder extends Seeder
             BlogSeeder::class,
             TagSeeder::class,
             BlogtagSeeder::class,
-
-            
+            TitreSeeder::class, 
         ]);
     }
 }
