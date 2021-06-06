@@ -38,5 +38,9 @@ Route::get('labslogin', function () {
     return view('/admin/dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+Route::get('labsregister', function () {
+    return view('/admin/welcome');
+})->middleware(['auth'])->name('register');
+
 
 require __DIR__.'/auth.php';

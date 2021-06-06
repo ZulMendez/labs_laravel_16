@@ -18,12 +18,11 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'nom',
-        'prenom',
         'email',
         'password',
         'role_id',
         'genre_id',
-        'photo_id',
+        'img',
         'poste_id',
     ];
 
@@ -48,10 +47,6 @@ class User extends Authenticatable
 
     public function genre() {
         return $this->belongsTo(Genre::class);
-    }
-
-    public function photo() {
-        return $this->belongsTo(Photo::class);
     }
 
     public function role() {
