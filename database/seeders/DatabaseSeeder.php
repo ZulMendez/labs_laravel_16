@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Newsletter;
 use App\Models\Testimonial;
 use Illuminate\Database\Seeder;
 
@@ -37,6 +38,7 @@ class DatabaseSeeder extends Seeder
             TagSeeder::class,
             BlogtagSeeder::class,
             TitreSeeder::class, 
+            ContactSeeder::class,
         ]);
     }
 }

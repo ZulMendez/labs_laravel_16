@@ -31,11 +31,11 @@
                     @foreach ($titres as $item)
                         <h2>{{$item->titreDiscover}}</h2>
                     @endforeach
-                    {{-- @php
-                        $title1 = str_replace('(', '<span>', $titres->titreDiscover);
-                        $title2 = str_replace(')', '</span>', $title1);
-                        echo $title2;
-                    @endphp --}}
+                    @php
+                        $titre1 = str_replace('(', '<span>', $titres[0]->titreDiscover);
+                        $titre2 = str_replace(')', '</span>', $titre1);
+                        echo $titre2;
+                    @endphp
             </div>
             
 

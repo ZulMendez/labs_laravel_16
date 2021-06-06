@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\NewsletterSender;
-use App\Models\Newsletter;
+use App\Models\Contact;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
 
-class NewsletterController extends Controller
+class ContactController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -35,26 +33,18 @@ class NewsletterController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request){
-        if ($request->has('newsletterStore')) {
-            $request->validate([
-                "mail" => ["required","string","email","max:255"],
-            ]);
-            $newsletter = Newsletter::create([
-                "mail" => $request->mail,
-            ]);
-            Mail::to("zumendez7@gmail.com")->send(new NewsletterSender($request));
-            return redirect()->back();
-        }
+    public function store(Request $request)
+    {
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Newsletter  $newsletter
+     * @param  \App\Models\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function show(Newsletter $newsletter)
+    public function show(Contact $contact)
     {
         //
     }
@@ -62,10 +52,10 @@ class NewsletterController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Newsletter  $newsletter
+     * @param  \App\Models\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function edit(Newsletter $newsletter)
+    public function edit(Contact $contact)
     {
         //
     }
@@ -74,10 +64,10 @@ class NewsletterController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Newsletter  $newsletter
+     * @param  \App\Models\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Newsletter $newsletter)
+    public function update(Request $request, Contact $contact)
     {
         //
     }
@@ -85,10 +75,10 @@ class NewsletterController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Newsletter  $newsletter
+     * @param  \App\Models\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Newsletter $newsletter)
+    public function destroy(Contact $contact)
     {
         //
     }

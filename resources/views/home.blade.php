@@ -9,6 +9,6 @@
     @include('sections.services')
     @include('sections.team')
     @include('sections.promo')
-    @include('sections.contact')
+    @include('partials.contact')
     @include('partials.footer')
 @endsection

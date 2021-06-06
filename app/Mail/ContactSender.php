@@ -28,7 +28,6 @@ class ContactSender extends Mailable
      */
     public function build()
     {
-        return $this->from($this->mail->mail)->view('mail.contact')->subject($this->mail->subject);
-        // markdown('mail.contact')
+        return $this->from($this->mail->mail)->markdown('mail.contact')->subject($this->mail->subject);
     }
 }

@@ -6,6 +6,7 @@ use App\Models\Article;
 use App\Models\Blog;
 use App\Models\Carousel;
 use App\Models\Categorie;
+use App\Models\Contact;
 use App\Models\Discover;
 use App\Models\Logo;
 use App\Models\Photo;
@@ -25,9 +26,9 @@ class AllController extends Controller
         // TITRES
         $titres = Titre::all();
 
-        // $titreDisc = Titre::where('titre_id', 1);
-        // $titreServ = Titre::where('id', 2);
-        // $titreTeam = Titre::where('id', 3);
+        $titreDiscover = Titre::all();
+        $titreService = Titre::all();
+        $titreTeam = Titre::all();
 
         // ABOUT
         $logo = Logo::all();
@@ -59,7 +60,11 @@ class AllController extends Controller
         
         //READY
         $readies = Ready::all();
-        return view('home', compact('titres', 'logo', 'video', 'services', 'carousel', 'services3', 'services9', 'discovers', 'testimonials', 'centre', 'team', 'teamC', 'photos', 'readies'));
+
+        // CONTACT
+        $contacts = Contact::all();
+
+        return view('home', compact('titres', 'titreDiscover', 'titreService', 'titreTeam', 'logo', 'video', 'services', 'carousel', 'services3', 'services9', 'discovers', 'testimonials', 'centre', 'team', 'teamC', 'photos', 'readies', 'contacts'));
     }
 
     public function services(){
@@ -68,7 +73,9 @@ class AllController extends Controller
         $logo = Logo::find(1);
         $features = Service::inRandomOrder()->limit(3)->get();
         $articles = Article::all();
-        return view('services', compact('titres', 'services', 'logo', 'features', 'articles'));
+        $contacts = Contact::all();
+
+        return view('services', compact('titres', 'services', 'logo', 'features', 'articles', 'contacts'));
     }
 
     public function blog(){
@@ -85,6 +92,8 @@ class AllController extends Controller
         return view('blog-post', compact('categories', 'blog', 'tags'));
     }
     public function contact(){
-        return view('contact');
+        $contacts = Contact::all();
+
+        return view('contact', compact('contacts'));
     }
 }

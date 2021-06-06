@@ -69,7 +69,7 @@ class UserController extends Controller
      */
     public function update(Request $request, User $id)
     {
-        if ($request->has('roleForUpdate')) {
+        if ($request->has('roleUpdate')) {
             
             $request->validate([
                 "role_id" => ["required"]

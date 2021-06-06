@@ -1,10 +1,9 @@
 @component('mail::message')
-# Introduction
 
 <h2>Email : {{ $mail->mail }}</h2>
 
 @component('mail::button', ['url' => ''])
-Button Text
+Read More
 @endcomponent
 
 Thanks,<br>
