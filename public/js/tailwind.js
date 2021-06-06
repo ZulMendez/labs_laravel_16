@@ -8,7 +8,7 @@
 /***/ (function(module) {
 
 (function (global, factory) {
-   true ? module.exports = factory() :
+  true ? module.exports = factory() :
   0;
 }(this, (function () { 'use strict';
 

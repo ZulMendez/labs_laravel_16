@@ -18,7 +18,6 @@ class UserSeeder extends Seeder
         DB::table('users')->insert([
             [
                 'nom' => 'Test',
-                'prenom' => 'Hello',
                 'img' => 'profil_defaut.jpg',
                 'email' => 'test@gmail.com',
                 'password' => Hash::make('testhello'),
@@ -29,7 +28,6 @@ class UserSeeder extends Seeder
             ],
             [
                 'nom' => 'Méndez',
-                'prenom' => 'Zulma',
                 'img' => 'profil_defaut.jpg',
                 'email' => ' zulM@gmail.com',
                 'password' => Hash::make('hello'),
@@ -40,7 +38,6 @@ class UserSeeder extends Seeder
             ],
             [
                 'nom' => 'Test2',
-                'prenom' => 'Hello2',
                 'img' => 'profil_defaut.jpg',
                 'email' => 'test2@gmail.com',
                 'password' => Hash::make('testhello2'),
@@ -51,7 +48,6 @@ class UserSeeder extends Seeder
             ],
             [
                 'nom' => 'Test3',
-                'prenom' => 'Hello3',
                 'img' => 'profil_defaut.jpg',
                 'email' => 'test3@gmail.com',
                 'password' => Hash::make('testhello3'),

@@ -17,7 +17,7 @@
         <script src="{{ asset('js/tailwind.js') }}" defer></script>
     </head>
     <body>
-        <div class="font-sans text-gray-900 antialiased">
+        <div class="font-sans bg-purple-700 text-gray-900 antialiased">
             {{ $slot }}
         </div>
     </body>
