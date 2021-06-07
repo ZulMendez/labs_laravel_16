@@ -29,13 +29,13 @@
             
             <div class="section-title">
                     @foreach ($titres as $item)
-                        <h2>{{$item->titreDiscover}}</h2>
+                        {{-- <h2>{{$item->titreDiscover}}</h2> --}}
                     @endforeach
-                    @php
-                        $titre1 = str_replace('(', '<span>', $titres[0]->titreDiscover);
+                    {{-- @php
+                        $titre1 = str_replace('(', '<span>', $titres->titreDiscover);
                         $titre2 = str_replace(')', '</span>', $titre1);
                         echo $titre2;
-                    @endphp
+                    @endphp --}}
             </div>
             
 

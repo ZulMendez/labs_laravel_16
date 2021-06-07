@@ -21,9 +21,7 @@ class CreateBlogsTable extends Migration
 
             $table->unsignedBigInteger('categorie_id');
             $table->foreign('categorie_id')->references('id')->on('categories');
-
-            // $table->unsignedBigInteger('comment_id');
-            // $table->foreign('comment_id')->references('id')->on('comments');
+            $table->foreignId('user_id')->constrained()->OnDelete('cascade');
             
             $table->timestamps();
         });

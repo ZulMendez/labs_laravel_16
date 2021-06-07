@@ -4,7 +4,7 @@
     <div class="container">
         <div class="section-title">
             @foreach ($titres as $item)
-                <h2>{{$item->titreTeam}}</h2>
+                {{-- <h2>{{$item->titreTeam}}</h2> --}}
             @endforeach
         </div>
         <div class="row">

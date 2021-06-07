@@ -43,9 +43,9 @@
                                         </a>
                                     @endforeach
                                 @endif
-                            <a href="">2 Comments</a>
+                            <a href="">{{count($post->comments)}}</a>
                         </div>
-                        <p>{{$post->description}}</p>
+                        <p>{{ Str::limit($post->description, 200, '...') }}</p>
                         <a href={{route('blog-post')}} class="read-more">Read More</a>
                     </div>
                 </div>
@@ -54,14 +54,7 @@
             <div class="text-center">
                 {{$posts->links('vendor.pagination.simple-default')}}
             </div>
-
-                <!-- Pagination -->
-                <div class="page-pagination">
-                    <a class="active" href="">01.</a>
-                    <a href="">02.</a>
-                    <a href="">03.</a>
-                </div>
-            </div>
+        </div>
             <!-- Sidebar area -->
             <div class="col-md-4 col-sm-5 sidebar">
                 <!-- Single widget -->

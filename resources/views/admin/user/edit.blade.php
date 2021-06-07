@@ -1,6 +1,6 @@
 <x-app-layout>
 
-    <form action="{{ route('user.update', $user->id) }}" method="post"
+    <form action="{{ route('role.update', $user->id) }}" method="post"
         class="grid bg-white rounded-lg shadow-xl  col-span-2 w-10/12 mx-auto">
         @csrf
         @method('PUT')
@@ -66,4 +66,59 @@
         </div>
 
     </form>
+    {{-- @Webmaster
+        <p class="text-center">Changement de rôles</p>
+        <table class="container text-center">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>name</th>
+                    <th>email</th>
+                    <th>rôle</th>
+                    <th>poste</th>
+                    <th>change poste</th>
+                    @Admin
+                        <th>delete</th>
+                    @endAdmin
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($users as $item)
+                    @if (!($item->role->nom == "admin"))
+                        @if (!(Auth::user()->role->nom == "webmaster" && $item->role->nom == "webmaster"))
+                            <tr>
+                                <td>{{$loop->iteration}}</td>
+                                <td>{{$item->nom}}</td>
+                                <td>{{$item->email}}</td>
+                                <td>{{$item->role->nom}}</td>
+                                <td>{{$item->poste->titre}}</td>
+                                <td>
+                                    <form action="{{route('role.update' , $item->id)}}" method="POST">
+                                        @csrf
+                                        @method('PUT')
+                                        <input type="hidden" name="roleUpdate" id="roleUpdate">
+                                        <select name="role_id" id="role_id">
+                                            @foreach ($roles as $item)
+                                            <option disabled selected>{{$item->nom}}</option>
+                                            @endforeach
+                                        </select>
+                                        <button type="submit" class='w-auto bg-purple-500 hover:bg-purple-700 rounded-lg shadow-xl font-medium text-white px-4 py-2'>Submit</button>
+                                    </form>            
+                                </td>
+                                <td>
+                                    @Admin
+                                    <form action="{{route('user.destroy', $item->id)}}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit">Delete</button>
+                                    </form>
+                                    @endAdmin
+                                </td>
+                            </tr>
+                        @endif
+                    @endif
+                @endforeach
+            </tbody>
+        </table>
+    @endWebmaster --}}
 </x-app-layout>

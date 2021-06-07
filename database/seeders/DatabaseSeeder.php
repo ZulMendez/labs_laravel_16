@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Comment;
 use App\Models\Newsletter;
 use App\Models\Testimonial;
 use Illuminate\Database\Seeder;
@@ -40,5 +41,7 @@ class DatabaseSeeder extends Seeder
             TitreSeeder::class, 
             ContactSeeder::class,
         ]);
+
+        Comment::factory()->count(6)->create(); 
     }
 }

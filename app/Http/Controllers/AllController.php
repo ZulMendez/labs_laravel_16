@@ -26,9 +26,9 @@ class AllController extends Controller
         // TITRES
         $titres = Titre::find(1);
 
-        $titreDiscover = Titre::all();
-        $titreService = Titre::all();
-        $titreTeam = Titre::all();
+        // $titreDiscover = Titre::all();
+        // $titreService = Titre::all();
+        // $titreTeam = Titre::all();
 
         // ABOUT
         $logo = Logo::all();
@@ -64,7 +64,7 @@ class AllController extends Controller
         // CONTACT
         $contacts = Contact::all();
 
-        return view('home', compact('titres', 'titreDiscover', 'titreService', 'titreTeam', 'logo', 'video', 'services', 'carousel', 'services3', 'services9', 'discovers', 'testimonials', 'centre', 'team', 'teamC', 'photos', 'readies', 'contacts'));
+        return view('home', compact('titres','logo', 'video', 'services', 'carousel', 'services3', 'services9', 'discovers', 'testimonials', 'centre', 'team', 'teamC', 'photos', 'readies', 'contacts'));
     }
 
     public function services(){

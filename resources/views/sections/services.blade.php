@@ -3,7 +3,7 @@
     <div class="container">
         <div class="section-title dark">
             @foreach ($titres as $item)
-                <h2>{{$item->titreService}}</h2>
+                {{-- <h2>{{$item->titreService}}</h2> --}}
             @endforeach
         </div>
         <div class="row">

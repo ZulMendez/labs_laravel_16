@@ -84,14 +84,12 @@ class UserController extends Controller
         $user->nom = $request->nom;
         $user->email = $request->email;
         $user->poste_id = $request->poste_id;
-        if ($request->has('roleUpdate')) {
-            $request->validate([
-                "role_id" => ["required"]
-            ]);
+        if (Auth::user()->role_id == 1) {
             $user->role_id = $request->role_id;
+        }
+        // $user->role_id = $request->role_id;
         $user->save();
         return redirect()->back()->with('success', 'Profil bien modifié');
-        }
     }
 
     public function updateMembre(User $user, Request $request)
