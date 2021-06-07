@@ -5,12 +5,12 @@
         @csrf
         @method('PUT')
         @include('layouts.flash')
+        <input type="hidden" name="roleUpdate" id="roleUpdate">
         <div class="flex justify-center pt-8">
             <div class="flex">
                 <h1 class="text-gray-600 font-bold md:text-2xl text-xl">Modification profil</h1>
             </div>
         </div>
-
 
         <div class="grid grid-cols-1 md:grid-cols-1 gap-5 md:gap-8 mt-5 mx-7">
             <div class="grid grid-cols-1">

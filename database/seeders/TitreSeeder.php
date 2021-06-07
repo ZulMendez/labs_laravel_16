@@ -17,7 +17,13 @@ class TitreSeeder extends Seeder
         DB::table('titres')->insert([
             [
                 'titreDiscover' => 'GET IN THE LAB AND DISCOVER THE WORLD',
+                'created_at' => now(),
+            ],
+            [
                 'titreService' => 'GET IN THE LAB AND SEE THE SERVICES',
+                'created_at' => now(),
+            ],
+            [
                 'titreTeam' => 'GET IN THE LAB AND MEET THE TEAM',
                 'created_at' => now(),
             ],

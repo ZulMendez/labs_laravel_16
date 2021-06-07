@@ -75,7 +75,7 @@ class UserController extends Controller
      */
     public function update(User $user, Request $request)
     {
-        $this->authorize('isAdmin');
+        $this->authorize('admin');
         $request->validate([
             'nom' => 'required|string|max:255',
             'email' => 'required|string',
@@ -84,16 +84,19 @@ class UserController extends Controller
         $user->nom = $request->nom;
         $user->email = $request->email;
         $user->poste_id = $request->poste_id;
-        if (Auth::user()->role_id == 1) {
+        if ($request->has('roleUpdate')) {
+            $request->validate([
+                "role_id" => ["required"]
+            ]);
             $user->role_id = $request->role_id;
-        }
         $user->save();
         return redirect()->back()->with('success', 'Profil bien modifié');
+        }
     }
 
     public function updateMembre(User $user, Request $request)
     {
-        $this->authorize('isUserCo', $user);
+        $this->authorize('user', $user);
         $request->validate([
             'nom' => 'required|string|max:255',
             'email' => 'required|string',

@@ -18,6 +18,7 @@ class CreateTitresTable extends Migration
             $table->string('titreDiscover');
             $table->string('titreService');
             $table->string('titreTeam');
+            
             $table->timestamps();
         });
     }

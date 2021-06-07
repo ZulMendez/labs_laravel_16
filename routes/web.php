@@ -35,7 +35,7 @@ Route::post('/mail/newsletter', [NewsletterController::class, 'store'])->name('n
 Route::resource('/admin/user', UserController::class)->middleware('admin');
 // Route::put('/admin/user/{id}/edit', [UserController::class, 'update'])->name('user.update');
 // Route::delete('/delete/{id}/user', [UserController::class , 'destroy'])->name('user.destroy');
-Route::put('/update/role/{id}/edit', [UserController::class , 'updateRole'])->name('role.update');
+Route::put('/update/role/{id}/edit', [UserController::class , 'update'])->name('role.update');
 
 
 // Auth

@@ -6,8 +6,8 @@
     @include('layouts.flash')
     <div class="w-4/4 mx-auto">
         <div class="bg-white shadow-md rounded my-6">
-            <table class="text-left w-full border-collapse">
-                <!--Border collapse doesn't work on this site yet but it's available in newer tailwind versions -->
+            @Webmaster
+            <table class="text-left w-full">
                 <thead>
                     <tr>
                         <th
@@ -53,11 +53,13 @@
                             @else
                                 <div class="flex">
                                     <a href="{{ route('user.edit', $user->id) }}" class="w-auto bg-blue-500 hover:bg-blue-700 rounded-lg shadow-xl font-medium text-white mr-1 px-4 py-2">Modifier</a>
+                                    @Admin
                                     <form action="{{ route('user.destroy', $user->id) }}" method="post">
                                         @csrf
                                         @method('DELETE')
                                         <button class="w-auto bg-red-500 hover:bg-red-700 rounded-lg shadow-xl font-medium text-white px-4 py-2">Delete</button>
                                     </form>
+                                    @endAdmin
                                 </div>
                             @endif
                         </td>
@@ -66,6 +68,62 @@
                     @endforeach
                 </tbody>
             </table>
+            @endWebmaster
+            @Webmaster
+        <p class="text-center">Changement des rôles</p>
+        <table class="container text-center">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>name</th>
+                    <th>email</th>
+                    <th>rôle</th>
+                    <th>poste</th>
+                    <th>change poste</th>
+                    @Admin
+                        <th>delete</th>
+                    @endAdmin
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($users as $item)
+                    @if (!($item->role->role_name == "admin"))
+                        @if (!(Auth::user()->role->role_name == "webmaster" && $item->role->role_name == "webmaster"))
+                            <tr>
+                                <td>{{$loop->iteration}}</td>
+                                <td>{{$item->nom}}</td>
+                                <td>{{$item->email}}</td>
+                                <td>{{$item->role->nom}}</td>
+                                <td>{{$item->poste->titre}}</td>
+                                <td>
+                                    <form action="{{route('role.update' , $item->id)}}" method="POST">
+                                        @csrf
+                                        @method('PUT')
+                                        <input type="hidden" name="roleUpdate" id="roleUpdate">
+                                        <select name="role_id" id="role_id">
+                                            <option disabled selected>Select role</option>
+                                            <option value="2">webmaster</option>
+                                            <option value="3">redacteur</option>
+                                        </select>
+                                        <button type="submit">Changer</button>
+                                    </form>            
+                                </td>
+                                <td>
+                                    @Admin
+                                    <form action="{{route('user.destroy', $item->id)}}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit">Delete</button>
+                                    </form>
+                                    @endAdmin
+                                </td>
+                            </tr>
+                        @endif
+                    @endif
+                @endforeach
+            </tbody>
+        </table>
+    @endWebmaster
         </div>
     </div>
 </x-app-layout>

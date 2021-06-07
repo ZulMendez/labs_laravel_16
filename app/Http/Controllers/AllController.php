@@ -24,7 +24,7 @@ class AllController extends Controller
 {
     public function home() {
         // TITRES
-        $titres = Titre::all();
+        $titres = Titre::find(1);
 
         $titreDiscover = Titre::all();
         $titreService = Titre::all();
@@ -68,7 +68,7 @@ class AllController extends Controller
     }
 
     public function services(){
-        $titres = Titre::all();
+        $titres = Titre::find(1);
         $services = Service::paginate(9)->fragment('servicePaginate');
         $logo = Logo::find(1);
         $features = Service::inRandomOrder()->limit(3)->get();
