@@ -4,6 +4,7 @@ use App\Http\Controllers\AllController;
 use App\Http\Controllers\MailcontactController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\NewsletterController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,8 +31,12 @@ Route::post('/mail', [MailcontactController::class, 'store'])->name('mail');
 Route::post('/mail/newsletter', [NewsletterController::class, 'store'])->name('newsletter');
 
 // Back
-Route::delete('/delete/{id}/user', [UserController::class , 'destroy'])->name('user.destroy');
-Route::put('/update/role/{id}/user', [UserController::class , 'update'])->name('role.update');
+//user
+Route::resource('/admin/user', UserController::class)->middleware('admin');
+// Route::put('/admin/user/{id}/edit', [UserController::class, 'update'])->name('user.update');
+// Route::delete('/delete/{id}/user', [UserController::class , 'destroy'])->name('user.destroy');
+Route::put('/update/role/{id}/edit', [UserController::class , 'updateRole'])->name('role.update');
+
 
 // Auth
 Route::get('labslogin', function () {

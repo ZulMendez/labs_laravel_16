@@ -17,9 +17,9 @@ class UserSeeder extends Seeder
     {
         DB::table('users')->insert([
             [
-                'nom' => 'Test',
+                'nom' => 'Admin',
                 'img' => 'profil_defaut.jpg',
-                'email' => 'test@gmail.com',
+                'email' => 'admin@gmail.com',
                 'password' => Hash::make('testhello'),
                 'role_id' => 1,
                 'genre_id' => 2,
@@ -37,9 +37,9 @@ class UserSeeder extends Seeder
                 'created_at' => now(),
             ],
             [
-                'nom' => 'Test2',
+                'nom' => 'Redacteur',
                 'img' => 'profil_defaut.jpg',
-                'email' => 'test2@gmail.com',
+                'email' => 'redacteur@gmail.com',
                 'password' => Hash::make('testhello2'),
                 'role_id' => 3,
                 'genre_id' => 2,
@@ -47,9 +47,9 @@ class UserSeeder extends Seeder
                 'created_at' => now(),
             ],
             [
-                'nom' => 'Test3',
+                'nom' => 'Membre1',
                 'img' => 'profil_defaut.jpg',
-                'email' => 'test3@gmail.com',
+                'email' => 'membre@gmail.com',
                 'password' => Hash::make('testhello3'),
                 'role_id' => 4,
                 'genre_id' => 1,

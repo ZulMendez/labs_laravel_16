@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Poste;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -14,7 +17,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::all();
+        return view('admin.user.main', compact('users'));
     }
 
     /**
@@ -55,9 +59,11 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        $roles = Role::all();
+        $postes = Poste::all();
+        return view('admin.user.edit', compact('user', 'roles', 'postes'));
     }
 
     /**
@@ -67,18 +73,38 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $id)
+    public function update(User $user, Request $request)
     {
-        if ($request->has('roleUpdate')) {
-            
-            $request->validate([
-                "role_id" => ["required"]
-            ]);
-            $user = $id;
+        $this->authorize('isAdmin');
+        $request->validate([
+            'nom' => 'required|string|max:255',
+            'email' => 'required|string',
+            'poste_id' => 'required',
+        ]);
+        $user->nom = $request->nom;
+        $user->email = $request->email;
+        $user->poste_id = $request->poste_id;
+        if (Auth::user()->role_id == 1) {
             $user->role_id = $request->role_id;
-            $user->save();
-            return redirect()->back();
         }
+        $user->save();
+        return redirect()->back()->with('success', 'Profil bien modifié');
+    }
+
+    public function updateMembre(User $user, Request $request)
+    {
+        $this->authorize('isUserCo', $user);
+        $request->validate([
+            'nom' => 'required|string|max:255',
+            'email' => 'required|string',
+            'poste_id' => 'required',
+        ]);
+        $user->nom = $request->nom;
+        $user->email = $request->email;
+        $user->poste_id = $request->poste_id;
+        $user->save();
+
+        return redirect()->back()->with('success', 'Profil bien modifié');
     }
 
     /**
@@ -89,8 +115,8 @@ class UserController extends Controller
      */
     public function destroy(User $id)
     {
-        $this->authorize('admin');
+        $this->authorize('isAdmin');
         $id->delete();
-        return redirect()->back();
+        return redirect()->route('user.index')->with('warning', 'Utilisateur bien supprimé');
     }
 }
