@@ -59,7 +59,7 @@
         </div>
         @endAdmin
         {{-- image --}}
-        <div class="grid grid-cols-1 md:grid-cols-1 gap-5 md:gap-8 mt-5 mx-7">
+        <div class="grid grid-cols-1 md:grid-cols-1 gap-5 md:gap-8 mt-5 mx-auto">
             <div class="grid grid-cols-1">
                 <label for="img" class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Photo</label>
                 <div>

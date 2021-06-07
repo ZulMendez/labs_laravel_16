@@ -8,7 +8,7 @@
             </div>
         </div>
     </div>
-    <div class="text-center bg-gray-50 py-5 shadow-md w-3/12 mx-auto rounded-lg">
-        <h1 class="text-3xl max-w-full">Bonjour {{ Auth::user()->nom }}</h1>
+    <div class="text-center bg-purple-500 py-5 shadow-md w-3/12 mx-auto rounded-lg">
+        <h1 class="text-3xl max-w-full">Bonjour {{ Auth::user()->nom }} !</h1>
     </div>
 </x-app-layout>

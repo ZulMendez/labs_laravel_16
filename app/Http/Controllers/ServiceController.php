@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Service;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ServiceController extends Controller
 {
@@ -14,7 +15,10 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        //
+        $this->authorize('webmaster', Auth::user()); 
+    
+        $services = Service::paginate(6)->fragment('servicePaginate'); 
+        return view('admin.services.index', compact('services')); 
     }
 
     /**

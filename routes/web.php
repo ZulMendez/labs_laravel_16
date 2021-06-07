@@ -4,6 +4,7 @@ use App\Http\Controllers\AllController;
 use App\Http\Controllers\MailcontactController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\NewsletterController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -39,15 +40,9 @@ Route::middleware(['auth'])->group(function () {
     Route::middleware(['webmaster'])->group(function () {
         // newsletter 
         Route::resource('/admin/newsletter', NewsletterController::class)->middleware('admin');
-        // services 
-        Route::get('/admin/services/all', [ServicesController::class,'index'])->name('services.all'); 
-        Route::get('/admin/services/edit/{service}', [ServicesController::class,'edit'])->name('service.edit'); 
-        Route::put('/admin/services/update/{service}', [ServicesController::class, 'update'])->name('service.update'); 
-        Route::post('/admin/services/del/{service}', [ServicesController::class, 'destroy'])->name('service.del');
-        Route::post('/admin/services/store', [ServicesController::class, 'store'])->name('service.store'); 
 
-        Route::get('/admin/services/icones', [ServicesController::class,'searchicones'])->name('services.icones');
-        Route::get('/admin/services/create', [ServicesController::class,'create'])->name('service.create');  
+        // services 
+        Route::resource('/admin/service', ServiceController::class)->middleware('webmaster');
 
         //testimontials: 
 

@@ -1,4 +1,4 @@
-<nav class="flex flex-col bg-purple-800 w-64 max-h-full px-4 tex-gray-900 border border-purple-600">
+<nav class="flex flex-col bg-purple-800 w-74 max-h-full px-4 tex-gray-900 border border-purple-600">
     <div class="flex flex-wrap mt-8">
         <div class="w-1/2">
             <img src="{{ asset(Auth::user()->img) }}" class="mx-auto w-20 h-20 rounded-full" />
@@ -25,13 +25,13 @@
                     4h4v-4h-4M4 8h4V4H4v4z"></path>
                     </svg>
                 </span>
-                <a href="{{ route('dashboard') }}">
+                <a class="text-gray-100 hover:text-black hover:font-bold" href="{{ route('dashboard') }}">
                     <span class="ml-2">Dashboard</span>
                 </a>
             </li>
 
             <li
-                class="mb-2 px-4 py-4 text-gray-100 flex flex-row  border-gray-300 hover:text-black   hover:bg-gray-300  hover:font-bold rounded rounded-lg">
+                class="mb-2 px-4 py-4 text-gray-100 flex flex-row border-gray-300 hover:text-black hover:bg-gray-300  hover:font-bold rounded rounded-lg">
                 <span>
                     <svg class="fill-current h-5 w-5 " viewBox="0 0 24 24" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
@@ -43,7 +43,7 @@
                             fill="currentColor" />
                     </svg>
                 </span>
-                {{-- <a href="{{ route('avatar.index') }}"> --}}
+                {{-- <a class="text-gray-100 hover:text-black hover:font-bold" href="{{ route('avatar.index') }}"> --}}
 
                     <span class="ml-2">Profile</span>
                 </a>
@@ -63,7 +63,7 @@
                             fill="currentColor" />
                     </svg>
                 </span>
-                <a href="{{ route('user.index') }}">
+                <a class="text-gray-100 hover:text-black hover:font-bold" href="{{ route('user.index') }}">
                     <span class="ml-2">Users</span>
                 </a>
             </li>
@@ -77,14 +77,14 @@
                     00-2-2h-1V1m-1 11h-5v5h5v-5z"></path>
                     </svg>
                 </span>
-                <a href="{{ route('newsletter.index') }}">
+                <a class="text-gray-100 hover:text-black hover:font-bold" href="{{ route('newsletter.index') }}">
 
                     <span class="ml-2">Newsletter</span>
                 </a>
             </li>
 
             <li
-                class="mb-2 px-4 py-4 text-gray-100 flex flex-row  border-gray-300 hover:text-black   hover:bg-gray-300  hover:font-bold rounded rounded-lg">
+                class="mb-2 px-4 py-4 text-gray-100 flex flex-row  border-gray-300 hover:text-black hover:bg-gray-300  hover:font-bold rounded rounded-lg">
                 <span>
                     <svg class="fill-current h-5 w-5" viewBox="0 0 24 24">
                         <path d="M12 4a4 4 0 014 4 4 4 0 01-4 4 4 4 0 01-4-4 4 4 0
@@ -92,7 +92,7 @@
                     8-4z"></path>
                     </svg>
                 </span>
-                {{-- <a href="{{ route('categorie.index') }}"> --}}
+                <a class="text-gray-100 hover:text-black hover:font-bold" href="{{ route('service.index') }}">
                     <span class="ml-2">Services</span>
                 </a>
             </li>
@@ -107,7 +107,7 @@
                     9v2h-4v-2h4m2-2h-8v6h8v-6z"></path>
                     </svg>
                 </span>
-                {{-- <a href="{{ route('article.index') }}"> --}}
+                {{-- <a class="text-gray-100 hover:text-black hover:font-bold" href="{{ route('article.index') }}"> --}}
                     <span class="ml-2">Blog</span>
                 </a>
             </li>
@@ -122,7 +122,7 @@
                     8-4z"></path>
                     </svg>
                 </span>
-                {{-- <a href="{{ route('blog.index') }}"> --}}
+                {{-- <a class="text-gray-100 hover:text-black hover:font-bold" href="{{ route('blog.index') }}"> --}}
                     <span class="ml-2">Testimonials</span>
                 </a>
             </li>

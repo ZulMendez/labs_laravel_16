@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="text-center bg-purple-500 py-5 shadow-md w-4/12 mx-auto rounded-lg">
+    <div class="text-center bg-purple-500 py-4 shadow-md w-4/12 mx-auto rounded-lg">
         <h1 class="text-3xl">Newsletter</h1>
     </div>
     <div class="py-12">
@@ -22,7 +22,7 @@
                             @endforeach
                         </table>
                     @else
-                        <p>Pas d'email enregistré dans la newsletter </p>
+                        <p class="text-center font-bold mx-auto">Pas d'email enregistré dans la newsletter </p>
                     @endif
                 </div>
             </div>

@@ -108,10 +108,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $id)
+    public function destroy(User $user)
     {
-        $this->authorize('isAdmin');
-        $id->delete();
+        $this->authorize('admin');
+        $user->delete();
         return redirect()->route('user.index')->with('warning', 'Utilisateur bien supprimé');
     }
 }
