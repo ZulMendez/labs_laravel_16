@@ -61,9 +61,13 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        $roles = Role::all();
-        $postes = Poste::all();
-        return view('admin.user.edit', compact('user', 'roles', 'postes'));
+        if(Auth::user()->id ==  $user->id  || Auth::user()->role_id <= 2){
+            $roles  = Role::all(); 
+            $postes = Poste::all(); 
+            return view('admin.user.edit', compact('user', 'roles', 'postes')); 
+        } else {
+            return redirect()->route('dashboard')->with('error','Access refusé'); 
+        }
     }
 
     /**
@@ -75,39 +79,29 @@ class UserController extends Controller
      */
     public function update(User $user, Request $request)
     {
-        $this->authorize('admin');
         $request->validate([
-            'nom' => 'required|string|max:255',
-            'email' => 'required|string',
-            'poste_id' => 'required',
+            "nom"       => "required",  
+            "email"     => "required"
         ]);
-        $user->nom = $request->nom;
-        $user->email = $request->email;
-        $user->poste_id = $request->poste_id;
-        if (Auth::user()->role_id == 1) {
-            $user->role_id = $request->role_id;
+
+        $user->nom      = $request->nom; 
+        $user->email    = $request->email; 
+
+        if($request->has('role')){
+            $user->role_id = $request->role; 
         }
-        // $user->role_id = $request->role_id;
+        if($request->has('poste')){
+            $user->poste_id = $request->role;
+        }  
+
+        if($request->file('img') != NULL){
+            $request->file('img')->storePublicly('img/','public');
+            $user->image = "img/". $request->file('img')->hashName();
+        }
+
         $user->save();
         return redirect()->back()->with('success', 'Profil bien modifié');
     }
-
-    public function updateMembre(User $user, Request $request)
-    {
-        $this->authorize('user', $user);
-        $request->validate([
-            'nom' => 'required|string|max:255',
-            'email' => 'required|string',
-            'poste_id' => 'required',
-        ]);
-        $user->nom = $request->nom;
-        $user->email = $request->email;
-        $user->poste_id = $request->poste_id;
-        $user->save();
-
-        return redirect()->back()->with('success', 'Profil bien modifié');
-    }
-
     /**
      * Remove the specified resource from storage.
      *

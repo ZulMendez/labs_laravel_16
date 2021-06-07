@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="text-center bg-purple-500 py-5 shadow-md w-4/12 mx-auto rounded-lg">
-        <h1 class="text-3xl">All users</h1>
-        <p>Nombre d'utilisateurs : {{ count($users) }}</p>
+        <h1 class="text-3xl">Users</h1>
+        <p>All users: {{ count($users) }}</p>
     </div>
     @include('layouts.flash')
     <div class="w-4/4 mx-auto">
@@ -37,8 +37,7 @@
                     @foreach ($users as $user)
                     <tr class="hover:bg-grey-lighter">
                         <td class="py-4 px-6 border-b border-grey-light">
-                            {{-- <img width="60" src="{{ asset('img/' . $user->avatar->src) }}"
-                                alt="{{ $user->avatar->nom }}"> --}}
+                            <img src="{{asset($user->img) }}" alt="" class="h-10" />
                         </td>
                         <td class="py-4 px-6 border-b border-grey-light">{{ $user->nom }}</td>
                         <td class="py-4 px-6 border-b border-grey-light">{{ $user->email }}</td>

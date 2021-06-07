@@ -18,7 +18,7 @@ class UserSeeder extends Seeder
         DB::table('users')->insert([
             [
                 'nom' => 'Admin',
-                'img' => 'profil_defaut.jpg',
+                'img' => 'img/profil_defaut.jpg',
                 'email' => 'admin@gmail.com',
                 'password' => Hash::make('testhello'),
                 'role_id' => 1,
@@ -28,7 +28,7 @@ class UserSeeder extends Seeder
             ],
             [
                 'nom' => 'Méndez',
-                'img' => 'profil_defaut.jpg',
+                'img' => 'img/team/1.jpg',
                 'email' => ' zulM@gmail.com',
                 'password' => Hash::make('hello'),
                 'role_id' => 2,
@@ -38,7 +38,7 @@ class UserSeeder extends Seeder
             ],
             [
                 'nom' => 'Redacteur',
-                'img' => 'profil_defaut.jpg',
+                'img' => 'img/team/3.jpg',
                 'email' => 'redacteur@gmail.com',
                 'password' => Hash::make('testhello2'),
                 'role_id' => 3,
@@ -48,7 +48,7 @@ class UserSeeder extends Seeder
             ],
             [
                 'nom' => 'Membre1',
-                'img' => 'profil_defaut.jpg',
+                'img' => 'img/team/2.jpg',
                 'email' => 'membre@gmail.com',
                 'password' => Hash::make('testhello3'),
                 'role_id' => 4,
