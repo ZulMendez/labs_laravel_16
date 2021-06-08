@@ -3,7 +3,7 @@
     <div class="overlay"></div>
     <div class="container text-right">
         <div class="page-info">
-            <h2>Services</h2>
+            {{-- <h2>Services</h2> --}}
             <div class="page-links">
                 <a href="#">Home</a>
                 <span>Services</span>
@@ -18,7 +18,7 @@
     <div class="container">
         <div class="section-title dark">
             @foreach ($titres as $item)
-                <h2>{{$item->titreService}}</h2>
+                {{-- <h2>{{$item->titreService}}</h2> --}}
             @endforeach
         </div>
         <div class="row">
@@ -51,7 +51,7 @@
     <div class="container">
         <div class="section-title">
             @foreach ($titres as $item)
-                <h2>{{$item->titreDiscover}}</h2>
+                {{-- <h2>{{$item->titreDiscover}}</h2> --}}
             @endforeach
         </div>
         <div class="row">

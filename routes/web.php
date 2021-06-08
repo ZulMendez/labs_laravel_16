@@ -5,6 +5,7 @@ use App\Http\Controllers\MailcontactController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,33 +34,23 @@ Route::post('/mail', [MailcontactController::class, 'store'])->name('mail');
 Route::post('/mail/newsletter', [NewsletterController::class, 'store'])->name('newsletter');
 
 // Back
-//user
-
 Route::middleware(['auth'])->group(function () {
 
     Route::middleware(['webmaster'])->group(function () {
         // newsletter 
-        Route::resource('/admin/newsletter', NewsletterController::class)->middleware('admin');
-
+        Route::resource('/admin/newsletter', NewsletterController::class);
         // services 
-        Route::resource('/admin/service', ServiceController::class)->middleware('webmaster');
-
-        //testimontials: 
-
-        Route::get('/admin/testimontials/all', [TestimontialController::class,'index'])->name('testimontial.all');
-
+        Route::resource('/admin/service', ServiceController::class);
+        // testimonials: 
+        Route::resource('/admin/testimonial', TestimonialController::class);
     });
         Route::resource('/admin/user', UserController::class)->middleware('admin');
-
 });
+
 // Auth
 Route::get('labslogin', function () {
     return view('/admin/dashboard');
 })->middleware(['auth'])->name('dashboard');
-
-Route::get('labsregister', function () {
-    return view('/admin/welcome');
-})->middleware(['auth'])->name('register');
 
 
 require __DIR__.'/auth.php';

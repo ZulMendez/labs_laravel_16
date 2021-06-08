@@ -1,11 +1,11 @@
 <x-app-layout>
-    <div class="py-12">
+    <div class="py-2">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200 block">
-                    <h3 class="text-4xl m-4 text-center">Services</h3>
+                <div class="p-4 bg-white border-b border-gray-200 block">
+                    <h3 class="text-4xl m-2 text-center text-gray-600">Services</h3>
                     <div class="text-center">
-                        <a href="{{route('service.create')}}" class="w-auto bg-purple-500 hover:bg-purple-700 rounded-lg shadow-xl font-medium text-white mx-auto px-4 py-2">Add service</a>
+                        <a href="{{route('service.create')}}" class="bg-green-400 hover:bg-green-500 m-2 py-2 text-white font-bold hover:text-black px-4 rounded-sm">Add service</a>
                     </div>
                     
                     @if (count($services) > 0)
@@ -26,6 +26,7 @@
                                         <a href="{{route('service.edit', $service->id) }}" class="w-auto bg-blue-500 hover:bg-blue-700 rounded-lg shadow-xl font-medium text-white mr-1 px-3 py-2">Edit</a>
                                         <form action="{{route('service.destroy', $service->id)}}" method="POST">
                                             @csrf
+                                            @method('DELETE')
                                             <button type="submit" class="w-auto bg-red-500 hover:bg-red-700 rounded-lg shadow-xl font-medium text-white px-4 py-2">Delete</button>
                                         </form>
                                     </td>

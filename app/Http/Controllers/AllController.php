@@ -7,6 +7,7 @@ use App\Models\Blog;
 use App\Models\Carousel;
 use App\Models\Categorie;
 use App\Models\Contact;
+use App\Models\ContactSujet;
 use App\Models\Discover;
 use App\Models\Logo;
 use App\Models\Photo;
@@ -25,7 +26,7 @@ class AllController extends Controller
     public function home() {
         // TITRES
         $titres = Titre::find(1);
-
+        $sujets = ContactSujet::all();
         // $titreDiscover = Titre::all();
         // $titreService = Titre::all();
         // $titreTeam = Titre::all();
@@ -64,7 +65,7 @@ class AllController extends Controller
         // CONTACT
         $contacts = Contact::all();
 
-        return view('home', compact('titres','logo', 'video', 'services', 'carousel', 'services3', 'services9', 'discovers', 'testimonials', 'centre', 'team', 'teamC', 'photos', 'readies', 'contacts'));
+        return view('home', compact('titres','logo', 'video', 'services', 'carousel', 'services3', 'services9', 'discovers', 'testimonials', 'centre', 'team', 'teamC', 'photos', 'readies', 'contacts', 'sujets'));
     }
 
     public function services(){
@@ -74,8 +75,8 @@ class AllController extends Controller
         $features = Service::inRandomOrder()->limit(3)->get();
         $articles = Article::all();
         $contacts = Contact::all();
-
-        return view('services', compact('titres', 'services', 'logo', 'features', 'articles', 'contacts'));
+        $sujets = ContactSujet::all();
+        return view('services', compact('titres', 'services', 'logo', 'features', 'articles', 'contacts', 'sujets'));
     }
 
     public function blog(){
@@ -93,7 +94,7 @@ class AllController extends Controller
     }
     public function contact(){
         $contacts = Contact::all();
-
-        return view('contact', compact('contacts'));
+        $sujets = ContactSujet::all();
+        return view('contact', compact('contacts', 'sujets'));
     }
 }

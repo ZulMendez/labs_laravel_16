@@ -1,4 +1,4 @@
-<nav class="flex flex-col bg-purple-800 w-74 max-h-full px-4 tex-gray-900 border border-purple-600">
+<nav class="flex flex-col bg-purple-600 w-84 max-h-full px-4 tex-black border border-purple-600">
     <div class="flex flex-wrap mt-8">
         <div class="w-1/2">
             <img src="{{ asset(Auth::user()->img) }}" class="mx-auto w-20 h-20 rounded-full" />
@@ -7,7 +7,7 @@
             <span class="font-semibold text-white">{{ Auth::user()->nom }} {{ Auth::user()->email }}</span>
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
-                <button class="bg-red-500 hover:bg-red-800 text-white font-bold py-2 px-4 rounded">Logout</button>
+                <button class="bg-red-500 hover:bg-red-800 text-white font-bold py-2 px-3 rounded">Logout</button>
 
             </form>
         </div>
@@ -67,7 +67,7 @@
                     <span class="ml-2">Users</span>
                 </a>
             </li>
-            
+
             <li
                 class="mb-2 px-4 py-4 text-gray-100 flex flex-row  border-gray-300 hover:text-black hover:bg-gray-300  hover:font-bold rounded rounded-lg">
                 <span>

@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Comment;
+use App\Models\ContactSujet;
 use App\Models\Newsletter;
 use App\Models\Testimonial;
 use Illuminate\Database\Seeder;
@@ -40,6 +41,7 @@ class DatabaseSeeder extends Seeder
             BlogtagSeeder::class,
             TitreSeeder::class, 
             ContactSeeder::class,
+            ContactSujetSeeder::class,
         ]);
 
         Comment::factory()->count(6)->create(); 

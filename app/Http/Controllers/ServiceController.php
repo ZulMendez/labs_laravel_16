@@ -16,7 +16,6 @@ class ServiceController extends Controller
     public function index()
     {
         $this->authorize('webmaster', Auth::user()); 
-    
         $services = Service::paginate(6)->fragment('servicePaginate'); 
         return view('admin.services.index', compact('services')); 
     }
@@ -28,7 +27,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.services.create'); 
     }
 
     /**
@@ -37,9 +36,21 @@ class ServiceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Service $service)
     {
-        //
+        $this->authorize('webmaster', Auth::user()); 
+
+        $request->validate([
+            "icone" => "required",
+            "soustitre" => "required", 
+            "description" => "required|max:200"
+        ]);
+
+        $service->icone = $request->icone; 
+        $service->soustitre = $request->soustitre; 
+        $service->description = $request->description; 
+        $service->save(); 
+        return redirect()->route('service.index')->with('success', 'Service bien modifié'); 
     }
 
     /**
@@ -61,7 +72,8 @@ class ServiceController extends Controller
      */
     public function edit(Service $service)
     {
-        //
+        $this->authorize('webmaster', Auth::user()); 
+        return view('admin.services.edit', compact('service')); 
     }
 
     /**
@@ -73,7 +85,19 @@ class ServiceController extends Controller
      */
     public function update(Request $request, Service $service)
     {
-        //
+        $this->authorize('webmaster', Auth::user()); 
+
+        $request->validate([
+            "icone" => "required",
+            "soustitre" => "required", 
+            "description" => "required|max:200"
+        ]);
+        $service->icone  = $request->icone; 
+        $service->soustitre = $request->soustitre; 
+        $service->description = $request->description; 
+        $service->save(); 
+
+        return redirect()->route('service.index')->with('success', 'Service bien modifié'); 
     }
 
     /**
@@ -84,6 +108,8 @@ class ServiceController extends Controller
      */
     public function destroy(Service $service)
     {
-        //
+        $this->authorize('webmaster', Auth::user());
+        $service->delete(); 
+        return redirect()->route('service.index')->with('success', 'Service bien supprimé'); 
     }
 }

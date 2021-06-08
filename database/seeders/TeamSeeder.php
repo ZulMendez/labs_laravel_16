@@ -53,7 +53,7 @@ class TeamSeeder extends Seeder
             ],
             [
                 'nom' => 'Zulma Méndez',
-                'photo_id' => 4,
+                'photo_id' => 2,
                 'poste_id' => 2,
                 'created_at' => now(),
             ],

@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\WelcomeSender;
+use App\Models\Genre;
 use App\Models\Poste;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
@@ -28,7 +32,11 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        $this->authorize('admin', Auth::user()); 
+        $roles = Role::all(); 
+        $postes = Poste::all();
+        $genres = Genre::all();
+        return view('admin.user.create', compact('roles', 'postes', 'genres')); 
     }
 
     /**
@@ -37,9 +45,24 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(User $user, Request $request )
     {
-        //
+        $this->authorize('admin', Auth::user()); 
+        $request->validate([
+            "nom" => "required",  
+            "email" => "required",
+        ]);
+        $user = new User(); 
+        $user->nom = $request->nom; 
+        $user->email = $request->email; 
+        $user->role_id = $request->role; 
+        $user->poste_id = $request->poste;
+        $user->genre_id = $request->genre;
+        $user->password = Hash::make('labs2021'); 
+        $user->save(); 
+        Mail::to($user->email)->send(new WelcomeSender($user, 'labs2021'));
+        
+        return redirect()->back()->with('success', "User bien ajouté"); 
     }
 
     /**
@@ -66,7 +89,7 @@ class UserController extends Controller
             $postes = Poste::all(); 
             return view('admin.user.edit', compact('user', 'roles', 'postes')); 
         } else {
-            return redirect()->route('dashboard')->with('error','Access refusé'); 
+            return redirect()->route('dashboard')->with('error','Accès refusé'); 
         }
     }
 
@@ -86,19 +109,13 @@ class UserController extends Controller
 
         $user->nom      = $request->nom; 
         $user->email    = $request->email; 
-
-        if($request->has('role')){
-            $user->role_id = $request->role; 
-        }
-        if($request->has('poste')){
-            $user->poste_id = $request->role;
-        }  
+        $user->role_id = $request->role_id; 
+        $user->poste_id = $request->poste_id;
 
         if($request->file('img') != NULL){
             $request->file('img')->storePublicly('img/','public');
-            $user->image = "img/". $request->file('img')->hashName();
+            $user->img = "img/". $request->file('img')->hashName();
         }
-
         $user->save();
         return redirect()->back()->with('success', 'Profil bien modifié');
     }

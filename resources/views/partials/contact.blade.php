@@ -38,8 +38,11 @@
                             @enderror                
                         </div>
                         <div class="col-sm-12">
-                            <label class="hidden" for="subject"></label>
-                            <input type="text" id="subject" name="subject" placeholder="Subject">
+                            <select name="subject" style="background-color:#f6edfb; width:100%; padding-top:10px; padding-bottom:10px; margin-bottom:10px;">
+                                @foreach ($sujets as $suj)
+                                    <option value="{{$suj->id}}">{{$suj->option}}</option>
+                                @endforeach
+                            </select>
                             @error('subject')
                             <span class="text-red-400">
                                 <strong>{{$message}}</strong>

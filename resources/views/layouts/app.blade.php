@@ -18,7 +18,7 @@
         <script src="{{ asset('js/tailwind.js') }}" defer></script>
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100 flex">
+        <div class="min-h-screen bg-gray-100 flex mt-2">
             @include('layouts.navigation')
             <!-- Page Content -->
             <main class="w-full">
