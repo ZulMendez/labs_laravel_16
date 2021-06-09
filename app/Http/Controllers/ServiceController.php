@@ -29,7 +29,6 @@ class ServiceController extends Controller
     {
         return view('admin.services.create'); 
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -44,12 +43,11 @@ class ServiceController extends Controller
             "icone" => "required",
             "soustitre" => "required", 
             "description" => "required|max:200"
-        ]);
-
+        ]); 
         $service->icone = $request->icone; 
         $service->soustitre = $request->soustitre; 
         $service->description = $request->description; 
-        $service->save(); 
+        $service->save();
         return redirect()->route('service.index')->with('success', 'Service bien modifié'); 
     }
 
@@ -109,7 +107,7 @@ class ServiceController extends Controller
     public function destroy(Service $service)
     {
         $this->authorize('webmaster', Auth::user());
-        $service->delete(); 
+        $service->delete();
         return redirect()->route('service.index')->with('success', 'Service bien supprimé'); 
     }
 }

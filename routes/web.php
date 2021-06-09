@@ -7,6 +7,10 @@ use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\UserController;
+use App\Models\Discover;
+use App\Models\Service;
+use App\Models\Titre;
+use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,7 +39,6 @@ Route::post('/mail/newsletter', [NewsletterController::class, 'store'])->name('n
 
 // Back
 Route::middleware(['auth'])->group(function () {
-
     Route::middleware(['webmaster'])->group(function () {
         // newsletter 
         Route::resource('/admin/newsletter', NewsletterController::class);
@@ -46,11 +49,24 @@ Route::middleware(['auth'])->group(function () {
     });
         Route::resource('/admin/user', UserController::class)->middleware('admin');
 });
+// CRUD PAGE HOME
+Route::get('home/card', function () {
+    $cards = Service::inRandomOrder()->limit(3)->get();
+    return view('admin/pages/home/card', compact('cards'));
+})->name('homecard.index');
+
+Route::get('home/discover', function () {
+    $titreDiscover = Titre::find(1);
+    $titreService = Titre::find(2);
+    $titreTeam = Titre::find(3);
+    $discovers = Discover::all();
+    return view('admin/pages/home/discover', compact('discovers', 'titreDiscover', 'titreService', 'titreTeam'));
+})->name('homediscover.index');
+
 
 // Auth
 Route::get('labslogin', function () {
     return view('/admin/dashboard');
 })->middleware(['auth'])->name('dashboard');
-
 
 require __DIR__.'/auth.php';

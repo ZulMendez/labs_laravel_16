@@ -3,7 +3,7 @@
     <div class="overlay"></div>
     <div class="container text-right">
         <div class="page-info">
-            {{-- <h2>Services</h2> --}}
+            <h2>Services</h2>
             <div class="page-links">
                 <a href="#">Home</a>
                 <span>Services</span>
@@ -17,9 +17,13 @@
 <div class="services-section spad">
     <div class="container">
         <div class="section-title dark">
-            @foreach ($titres as $item)
-                {{-- <h2>{{$item->titreService}}</h2> --}}
-            @endforeach
+            <h2>
+                @php
+                    $titre1 = str_replace('(', '<span>', $titreService->titre);
+                    $titre2 = str_replace(')', '</span>', $titre1);
+                    echo $titre2;
+                @endphp
+            </h2>
         </div>
         <div class="row">
             <!-- single service -->
@@ -50,9 +54,13 @@
     <div class="overlay"></div>
     <div class="container">
         <div class="section-title">
-            @foreach ($titres as $item)
-                {{-- <h2>{{$item->titreDiscover}}</h2> --}}
-            @endforeach
+            <h2>
+                @php
+                    $titre1 = str_replace('(', '<span>', $titreDiscover->titre);
+                    $titre2 = str_replace(')', '</span>', $titre1);
+                    echo $titre2;
+                @endphp
+            </h2>
         </div>
         <div class="row">
             <!-- feature item -->

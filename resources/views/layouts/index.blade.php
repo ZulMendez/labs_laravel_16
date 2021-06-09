@@ -23,7 +23,7 @@
 	<link rel="stylesheet" href="{{asset('css/owl.carousel.css')}}"/>
 	<link rel="stylesheet" href="{{asset('css/style.css')}}"/>
 
-    <link rel="stylesheet" href="{{asset('css/app.css')}}">
+    {{-- <link rel="stylesheet" href="{{asset('css/app.css')}}"> --}}
     
 </head>
 <body>
@@ -42,7 +42,7 @@
     <script src="{{asset('js/map.js')}}"></script>
     <script src="{{asset('js/main.js')}}"></script>
 
-    <script src="{{asset('js/app.js')}}"></script>
+    {{-- <script src="{{asset('js/app.js')}}"></script> --}}
     
 </body>
 </html>

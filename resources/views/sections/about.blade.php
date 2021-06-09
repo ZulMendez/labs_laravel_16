@@ -21,24 +21,18 @@
         </div>
     </div>
     <!-- card section end-->
-
-
     <!-- About contant -->
     <div class="about-contant">
         <div class="container">
-            
             <div class="section-title">
-                    @foreach ($titres as $item)
-                        {{-- <h2>{{$item->titreDiscover}}</h2> --}}
-                    @endforeach
-                    {{-- @php
-                        $titre1 = str_replace('(', '<span>', $titres->titreDiscover);
+                <h2>
+                    @php
+                        $titre1 = str_replace('(', '<span>', $titreDiscover->titre);
                         $titre2 = str_replace(')', '</span>', $titre1);
                         echo $titre2;
-                    @endphp --}}
+                    @endphp
+                </h2>
             </div>
-            
-
             <div class="row">
                 @foreach ($discovers as $item)
                 <div class="col-md-6">
@@ -46,7 +40,6 @@
                 </div>
                 @endforeach
             </div>
-            
             <div class="text-center mt60">
                 <a href="" class="site-btn">Browse</a>
             </div>

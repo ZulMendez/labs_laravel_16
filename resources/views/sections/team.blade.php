@@ -3,9 +3,13 @@
     <div class="overlay"></div>
     <div class="container">
         <div class="section-title">
-            @foreach ($titres as $item)
-                {{-- <h2>{{$item->titreTeam}}</h2> --}}
-            @endforeach
+            <h2>
+                @php
+                    $titre1 = str_replace('(', '<span>', $titreTeam->titre);
+                    $titre2 = str_replace(')', '</span>', $titre1);
+                    echo $titre2;
+                @endphp
+            </h2>
         </div>
         <div class="row">
             <!-- single member -->

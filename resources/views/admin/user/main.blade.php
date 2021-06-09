@@ -3,9 +3,11 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-4 bg-white border-b border-gray-200 block">
-                    <h1 class="text-center text-gray-600 text-3xl m-auto">Users</h1>
-                    <p class="text-center">All users: {{ count($users) }}</p>
-                    <div class="text-center">
+                    <div class="text-center bg-gray-100 py-4 shadow-md w-6/12 mx-auto rounded-lg">
+                        <h1 class="text-center text-gray-600 text-4xl m-auto">Users</h1>
+                        <p class="text-center">All users: {{ count($users) }}</p>
+                    </div>
+                    <div class="text-center mt-3">
                         <a href="{{route('user.create')}}" class="bg-green-400 hover:bg-green-500 m-2 py-2 text-white font-bold hover:text-black px-3 rounded-sm">Add user</a>
                     </div>
                     @Webmaster
@@ -53,7 +55,7 @@
                                         <p class="text-red-600 font-bold "> Action refusée !</p>
                                     @else
                                         <div class="flex">
-                                            <a href="{{ route('user.edit', $user->id) }}" class="w-auto bg-blue-500 hover:bg-blue-700 rounded-lg shadow-xl font-medium text-white mr-1 px-4 py-2">Modifier</a>
+                                            <a href="{{ route('user.edit', $user->id) }}" class="w-auto bg-blue-500 hover:bg-blue-700 rounded-lg shadow-xl font-medium text-white mr-1 px-4 py-2">Edit</a>
                                             {{-- @Admin --}}
                                             <form action="{{ route('user.destroy', $user->id) }}" method="post">
                                                 @csrf

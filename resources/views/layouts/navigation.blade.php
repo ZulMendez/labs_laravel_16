@@ -29,7 +29,7 @@
                     <span class="ml-2">Dashboard</span>
                 </a>
             </li>
-
+            {{-- Home --}}
             <li
                 class="mb-2 px-4 py-4 text-gray-100 flex flex-row border-gray-300 hover:text-black hover:bg-gray-300  hover:font-bold rounded rounded-lg">
                 <span>
@@ -43,10 +43,15 @@
                             fill="currentColor" />
                     </svg>
                 </span>
-                {{-- <a class="text-gray-100 hover:text-black hover:font-bold" href="{{ route('avatar.index') }}"> --}}
-
-                    <span class="ml-2">Profile</span>
-                </a>
+                
+                <span class="ml-2">Home
+                    <li class="ml-14">
+                        <a class="text-gray-100 hover:text-black hover:font-bold" href="{{ route('homecard.index') }}">Cards
+                    </li>
+                    <li class="ml-14">
+                        <a class="text-gray-100 hover:text-black hover:font-bold" href="{{ route('homediscover.index') }}">Discover
+                    </li>
+                </span>
             </li>
             @Webmaster
             <li
