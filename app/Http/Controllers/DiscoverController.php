@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Discover;
+use App\Models\Titre;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,7 +16,10 @@ class DiscoverController extends Controller
      */
     public function index()
     {
-        //
+        $this->authorize('webmaster', Auth::user());
+        $discovers = Discover::all();
+        $titreDiscover = Titre::find(1);
+        return view('admin.pages.home.discover', compact('discovers', 'titreDiscover'));
     }
 
     /**
@@ -25,7 +29,7 @@ class DiscoverController extends Controller
      */
     public function create()
     {
-        //
+        // 
     }
 
     /**
@@ -59,7 +63,7 @@ class DiscoverController extends Controller
     public function edit(Discover $discover)
     {
         $this->authorize('webmaster', Auth::user()); 
-        return view('admin.pages.home.discover.edit', compact('discover')); 
+        return view('admin.pages.home.editDiscover', compact('discover')); 
     }
 
     /**
@@ -71,7 +75,14 @@ class DiscoverController extends Controller
      */
     public function update(Request $request, Discover $discover)
     {
-        //
+        $this->authorize('webmaster', Auth::user()); 
+        $request->validate([
+            "description" => "required|max:352"
+        ]);
+        $discover->description = $request->description; 
+        $discover->save(); 
+
+        return redirect()->route('discover.index')->with('success', 'Service bien modifié'); 
     }
 
     /**

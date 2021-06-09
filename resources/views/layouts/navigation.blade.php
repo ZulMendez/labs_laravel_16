@@ -49,7 +49,7 @@
                         <a class="text-gray-100 hover:text-black hover:font-bold" href="{{ route('homecard.index') }}">Cards
                     </li>
                     <li class="ml-14">
-                        <a class="text-gray-100 hover:text-black hover:font-bold" href="{{ route('homediscover.index') }}">Discover
+                        <a class="text-gray-100 hover:text-black hover:font-bold" href="{{ route('discover.index') }}">Discover
                     </li>
                 </span>
             </li>

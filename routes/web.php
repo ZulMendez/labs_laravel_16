@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AllController;
+use App\Http\Controllers\DiscoverController;
 use App\Http\Controllers\MailcontactController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\NewsletterController;
@@ -54,14 +55,14 @@ Route::get('home/card', function () {
     $cards = Service::inRandomOrder()->limit(3)->get();
     return view('admin/pages/home/card', compact('cards'));
 })->name('homecard.index');
-
-Route::get('home/discover', function () {
-    $titreDiscover = Titre::find(1);
-    $titreService = Titre::find(2);
-    $titreTeam = Titre::find(3);
-    $discovers = Discover::all();
-    return view('admin/pages/home/discover', compact('discovers', 'titreDiscover', 'titreService', 'titreTeam'));
-})->name('homediscover.index');
+Route::resource('/admin/discover', DiscoverController::class);
+// Route::get('home/discover', function () {
+//     $titreDiscover = Titre::find(1);
+//     $titreService = Titre::find(2);
+//     $titreTeam = Titre::find(3);
+//     $discovers = Discover::all();
+//     return view('admin/pages/home/discover', compact('discovers', 'titreDiscover', 'titreService', 'titreTeam'));
+// })->name('homediscover.index');
 
 
 // Auth

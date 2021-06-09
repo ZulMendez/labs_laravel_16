@@ -23,11 +23,12 @@
                                 <div class="col-md-6">
                                     <p>{{$item->description}}</p>
                                 </div>
-                                @endforeach
+                                
                             </div>
                             <div class="text-center mt60">
-                                <a href="" class="site-btn">Browse</a>
+                                <a href="{{route('discover.edit', $item->id) }}" class="w-auto bg-blue-500 hover:bg-blue-700 rounded-lg shadow-xl font-medium text-white mr-1 px-3 py-2">Edit</a>
                             </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
