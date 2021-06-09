@@ -50,7 +50,7 @@ class ServiceController extends Controller
         $service->save();
         return redirect()->route('service.index')->with('success', 'Service bien modifié'); 
     }
-
+    
     /**
      * Display the specified resource.
      *
@@ -94,7 +94,6 @@ class ServiceController extends Controller
         $service->soustitre = $request->soustitre; 
         $service->description = $request->description; 
         $service->save(); 
-
         return redirect()->route('service.index')->with('success', 'Service bien modifié'); 
     }
 

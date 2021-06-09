@@ -8,6 +8,7 @@ use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\VideoController;
 use App\Models\Discover;
 use App\Models\Service;
 use App\Models\Titre;
@@ -49,25 +50,22 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('/admin/testimonial', TestimonialController::class);
     });
         Route::resource('/admin/user', UserController::class)->middleware('admin');
+        Route::put('admin/user/{user}/edit', [UserController::class, 'updateMembre'])->name('membre.update');
 });
+
 // CRUD PAGE HOME
 Route::get('home/card', function () {
     $cards = Service::inRandomOrder()->limit(3)->get();
     return view('admin/pages/home/card', compact('cards'));
 })->name('homecard.index');
-Route::resource('/admin/discover', DiscoverController::class);
-// Route::get('home/discover', function () {
-//     $titreDiscover = Titre::find(1);
-//     $titreService = Titre::find(2);
-//     $titreTeam = Titre::find(3);
-//     $discovers = Discover::all();
-//     return view('admin/pages/home/discover', compact('discovers', 'titreDiscover', 'titreService', 'titreTeam'));
-// })->name('homediscover.index');
 
+Route::resource('/admin/discover', DiscoverController::class);
+Route::resource('/admin/video', VideoController::class);
 
 // Auth
 Route::get('labslogin', function () {
     return view('/admin/dashboard');
 })->middleware(['auth'])->name('dashboard');
+
 
 require __DIR__.'/auth.php';

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TestimonialController extends Controller
 {
@@ -14,7 +15,9 @@ class TestimonialController extends Controller
      */
     public function index()
     {
-        //
+        $this->authorize('webmaster', Auth::user());
+        $testi = Testimonial::paginate(5)->fragment('testimonialPaginate'); 
+        return view('admin.pages.home.testimonial', compact('testi')); 
     }
 
     /**

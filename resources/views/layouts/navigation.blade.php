@@ -51,6 +51,12 @@
                     <li class="ml-14">
                         <a class="text-gray-100 hover:text-black hover:font-bold" href="{{ route('discover.index') }}">Discover
                     </li>
+                    <li class="ml-14">
+                        <a class="text-gray-100 hover:text-black hover:font-bold" href="{{ route('video.index') }}">Video
+                    </li>
+                    <li class="ml-14">
+                        <a class="text-gray-100 hover:text-black hover:font-bold" href="{{ route('testimonial.index') }}">Testimonial
+                    </li>
                 </span>
             </li>
             @Webmaster
@@ -128,7 +134,7 @@
                     </svg>
                 </span>
                 {{-- <a class="text-gray-100 hover:text-black hover:font-bold" href="{{ route('blog.index') }}"> --}}
-                    <span class="ml-2">Testimonials</span>
+                    <span class="ml-2"></span>
                 </a>
             </li>
             @endWebmaster

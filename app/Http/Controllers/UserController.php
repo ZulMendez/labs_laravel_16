@@ -119,6 +119,24 @@ class UserController extends Controller
         $user->save();
         return redirect()->back()->with('success', 'Profil bien modifié');
     }
+    public function updateMembre(User $user, Request $request)
+    {
+        $this->authorize('user', $user);
+        $request->validate([
+            'nom' => 'required|string|max:255',
+            'email' => 'required|string',
+            'photo_id' => 'required',
+        ]);
+        $user->nom = $request->nom;
+        $user->email = $request->email;
+        if($request->file('img') != NULL){
+            $request->file('img')->storePublicly('img/','public');
+            $user->img = "img/". $request->file('img')->hashName();
+        }
+
+        $user->save();
+        return redirect()->back()->with('success', 'Votre profil a bien été modifié');
+    }
     /**
      * Remove the specified resource from storage.
      *

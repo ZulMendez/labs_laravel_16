@@ -82,7 +82,7 @@ class DiscoverController extends Controller
         $discover->description = $request->description; 
         $discover->save(); 
 
-        return redirect()->route('discover.index')->with('success', 'Service bien modifié'); 
+        return redirect()->route('discover.index')->with('success', 'Description bien modifié'); 
     }
 
     /**

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Video;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class VideoController extends Controller
 {
@@ -14,7 +15,8 @@ class VideoController extends Controller
      */
     public function index()
     {
-        //
+        $video = Video::all();
+        return view('admin.pages.home.video', compact('video'));
     }
 
     /**
@@ -57,7 +59,8 @@ class VideoController extends Controller
      */
     public function edit(Video $video)
     {
-        //
+        $this->authorize('webmaster', Auth::user()); 
+        return view('admin.pages.home.editVideo', compact('video')); 
     }
 
     /**
@@ -69,7 +72,22 @@ class VideoController extends Controller
      */
     public function update(Request $request, Video $video)
     {
-        //
+        $this->authorize('webmaster', Auth::user()); 
+        $request->validate([
+            "lien" => "required",
+            "url" => "required",
+        ]);
+        if($request->file('url') != NULL){
+            $request->file('url')->storePublicly('img/','public');
+            $video->url = "img/". $request->file('url')->hashName();
+        }
+        if($request->file('lien') != NULL){
+            $request->file('lien')->storePublicly('img/','public');
+            $video->url = "img/". $request->file('lien')->hashName();
+        }
+        $video->save(); 
+
+        return redirect()->route('video.index')->with('success', 'Video bien modifié'); 
     }
 
     /**

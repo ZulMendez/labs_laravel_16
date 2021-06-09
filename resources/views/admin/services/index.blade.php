@@ -18,10 +18,10 @@
                                 <th class="hidden md:table-cell">Description</td>
                                 <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">Action</th>
                             </tr>
-                        
+                            
                             @foreach ($services as $service)
                                 <tr class="border-2">
-                                    <td class="py-4 px-6 border-b text-black font-bold border-grey-light">{{ $service->icone }}</td>
+                                    <td class="py-4 px-6 border-b text-black font-bold border-grey-light"> <i class="{{$service->icone}}"></i> -- {{ $service->icone }}</td>
                                     <td class="py-4 px-6 border-b border-grey-light">{{ $service->soustitre }}</td>
                                     <td class="hidden md:table-cell">{{ $service->description }}</td>
                                     <td class="flex">
