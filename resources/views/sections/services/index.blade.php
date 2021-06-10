@@ -1,11 +1,11 @@
 <!-- Page header -->
-<div class="page-top-section">
+<div id="serviceSection" class="page-top-section">
     <div class="overlay"></div>
     <div class="container text-right">
         <div class="page-info">
             <h2>Services</h2>
             <div class="page-links">
-                <a href="#">Home</a>
+                <a href="{{route('home')}}">Home</a>
                 <span>Services</span>
             </div>
         </div>
@@ -14,7 +14,7 @@
 <!-- Page header end-->
 
 <!-- services section -->
-<div class="services-section spad">
+<div id="services" class="services-section spad">
     <div class="container">
         <div class="section-title dark">
             <h2>
@@ -99,14 +99,14 @@
             </div>
         </div>
         <div class="text-center mt100">
-            <a href="" class="site-btn">Browse</a>
+            <a class="site-btn " href="{{route('services')}}#cards">Browse</a>
         </div>
     </div>
 </div>
 <!-- features section end-->
 
 <!-- services card section-->
-<div class="services-card-section spad">
+<div id="cards" class="services-card-section spad">
     <div class="container">
         <div class="row">
             <!-- Single Card -->

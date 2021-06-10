@@ -2,9 +2,12 @@
 
 namespace Database\Seeders;
 
+use App\Mail\RegisterSender;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use stdClass;
 
 class UserSeeder extends Seeder
 {
@@ -24,6 +27,7 @@ class UserSeeder extends Seeder
                 'role_id' => 1,
                 'genre_id' => 2,
                 'poste_id' => 1,
+                "validate" => 1,
                 'created_at' => now(),
             ],
             [
@@ -34,6 +38,7 @@ class UserSeeder extends Seeder
                 'role_id' => 2,
                 'genre_id' => 1,
                 'poste_id' => 2,
+                "validate" => 1,
                 'created_at' => now(),
             ],
             [
@@ -44,6 +49,7 @@ class UserSeeder extends Seeder
                 'role_id' => 3,
                 'genre_id' => 2,
                 'poste_id' => 3,
+                "validate" => 1,
                 'created_at' => now(),
             ],
             [
@@ -54,6 +60,7 @@ class UserSeeder extends Seeder
                 'role_id' => 4,
                 'genre_id' => 1,
                 'poste_id' => 4,
+                "validate" => 0,
                 'created_at' => now(),
             ],
         ]);

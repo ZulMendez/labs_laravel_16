@@ -46,6 +46,9 @@
                 
                 <span class="ml-2">Home
                     <li class="ml-14">
+                        <a class="text-gray-100 hover:text-black hover:font-bold" href="{{ route('titre.index') }}">Titres
+                    </li>
+                    <li class="ml-14">
                         <a class="text-gray-100 hover:text-black hover:font-bold" href="{{ route('homecard.index') }}">Cards
                     </li>
                     <li class="ml-14">
@@ -56,6 +59,9 @@
                     </li>
                     <li class="ml-14">
                         <a class="text-gray-100 hover:text-black hover:font-bold" href="{{ route('testimonial.index') }}">Testimonial
+                    </li>
+                    <li class="ml-14">
+                        <a class="text-gray-100 hover:text-black hover:font-bold" href="{{ route('ready.index') }}">Ready
                     </li>
                 </span>
             </li>
@@ -118,7 +124,7 @@
                     9v2h-4v-2h4m2-2h-8v6h8v-6z"></path>
                     </svg>
                 </span>
-                {{-- <a class="text-gray-100 hover:text-black hover:font-bold" href="{{ route('article.index') }}"> --}}
+                <a class="text-gray-100 hover:text-black hover:font-bold" href="{{ route('blog.index') }}">
                     <span class="ml-2">Blog</span>
                 </a>
             </li>
@@ -133,8 +139,8 @@
                     8-4z"></path>
                     </svg>
                 </span>
-                {{-- <a class="text-gray-100 hover:text-black hover:font-bold" href="{{ route('blog.index') }}"> --}}
-                    <span class="ml-2"></span>
+                <a class="text-gray-100 hover:text-black hover:font-bold" href="{{ route('contact.index')}}">
+                    <span class="ml-2">Contact</span>
                 </a>
             </li>
             @endWebmaster

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\Categorie;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -14,7 +16,8 @@ class BlogController extends Controller
      */
     public function index()
     {
-        //
+        $articles = Blog::paginate(3); 
+        return view('admin.blog.index', compact('articles'));
     }
 
     /**
@@ -24,7 +27,7 @@ class BlogController extends Controller
      */
     public function create()
     {
-        //
+        return view();
     }
 
     /**
@@ -46,7 +49,7 @@ class BlogController extends Controller
      */
     public function show(Blog $blog)
     {
-        //
+        // return view('admin.blog.show', compact('blog'));
     }
 
     /**
@@ -57,7 +60,9 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog)
     {
-        //
+        $categories = Categorie::all(); 
+        $tags = Tag::all(); 
+        return view('admin.blog.edit', compact('blog', 'categories', 'tags'));
     }
 
     /**

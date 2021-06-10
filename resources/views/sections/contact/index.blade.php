@@ -5,7 +5,7 @@
         <div class="page-info">
             <h2>Contact</h2>
             <div class="page-links">
-                <a href="#">Home</a>
+                <a href="{{route('home')}}">Home</a>
                 <span>Contact</span>
             </div>
         </div>
@@ -14,5 +14,5 @@
 <!-- Page header end -->
 
 <!-- Google map -->
-<div class="map" id="map-area"></div>
+<div class="map" id="map-area" pos="{{$contacts[0]->position}}"></div>
 

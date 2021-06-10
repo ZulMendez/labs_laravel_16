@@ -30,7 +30,7 @@ class AllController extends Controller
         $titreTeam = Titre::find(3);
 
         // ABOUT
-        $logo = Logo::all();
+        $logo = asset("img/big-logo.png"); 
         $video = Video::all();
         $carousel = Carousel::all();
 
@@ -83,6 +83,17 @@ class AllController extends Controller
         $categories = Categorie::all();
         $tags = Tag::all();
         return view('blog', compact('posts', 'categories', 'tags'));
+    }
+
+    public function search(Request $request){ 
+        if($request->has('x')){
+            $x = $request->x; 
+            $route = "search"; 
+            $cats  = Categorie::all();
+            $tags = Tag::all(); 
+            $results = Blog::where('titre', 'LIKE', "%" . $x . "%")->get();
+            return view('blogshow', compact('route', 'results', 'cats', 'tags','x'));
+        }
     }
 
     public function blogp(){

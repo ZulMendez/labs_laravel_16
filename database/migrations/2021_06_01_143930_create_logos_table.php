@@ -15,7 +15,6 @@ class CreateLogosTable extends Migration
     {
         Schema::create('logos', function (Blueprint $table) {
             $table->id();
-            $table->string('titreIntro');
             $table->string('logo');
             $table->timestamps();
         });

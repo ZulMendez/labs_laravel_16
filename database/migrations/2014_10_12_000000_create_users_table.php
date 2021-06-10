@@ -30,7 +30,7 @@ class CreateUsersTable extends Migration
 
             $table->unsignedBigInteger('poste_id');
             $table->foreign('poste_id')->references('id')->on('postes');
-
+            $table->boolean('validate');
             $table->rememberToken();
             $table->timestamps();
         });

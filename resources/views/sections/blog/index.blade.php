@@ -5,7 +5,7 @@
         <div class="page-info">
             <h2>Blog</h2>
             <div class="page-links">
-                <a href="#">Home</a>
+                <a href="{{route('home')}}">Home</a>
                 <span>Blog</span>
             </div>
         </div>

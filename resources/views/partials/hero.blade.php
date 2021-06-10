@@ -2,10 +2,14 @@
 <div class="hero-section">
     <div class="hero-content">
         <div class="hero-center">
-            @foreach ($logo as $item)
-                <img src="{{asset('img/' . $item->logo)}}" alt="">
-                <p>{{$item->titreIntro}}</p>
-            @endforeach
+            <img src="{{$logo}}"  alt="{{ config('app_name') }}">
+            <p id="cartext">
+                @foreach ($carousel as $car)
+                    @if ($car->principal == 1)
+                        {{ $car->titreIntro }}
+                    @endif
+                @endforeach
+            </p>
         </div>
     </div>
     

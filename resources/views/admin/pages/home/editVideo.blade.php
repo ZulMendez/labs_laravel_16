@@ -12,26 +12,16 @@
         {{-- image --}}
         <div class="grid grid-cols-1 md:grid-cols-1 gap-5 md:gap-8 mt-5 mx-auto">
             <div class="grid grid-cols-1">
-                <label for="url" class="font-bold">Image</label>
-                <div>
-                    <img src="{{asset($video->url)}}" alt="photo" class="bg-gray-300 rounded-md w-full">
-                </div>
-                <input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="file" name="url"/>
-                @error('url')
-                    <span class="text-red-500">{{$message}}</span><br/>
-                @enderror
-            </div>
-        </div>
-        {{-- lien --}}
-        <div class="grid grid-cols-1 md:grid-cols-1 gap-5 md:gap-8 mt-5 mx-auto">
-            <div class="grid grid-cols-1">
-                <label for="lien" class="font-bold">Lien</label>
-                <div>
-                    <img src="{{asset($video->lien)}}" alt="photo" class="bg-gray-300 rounded-md w-full">
-                </div>
-                <input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="file" name="lien"/>
+                <label for="lien">Lien vidéo: </label><br/>
+                <input type="text" name="lien" value="{{$video->lien}}" class="w-full" /> <br/> 
                 @error('lien')
-                    <span class="text-red-500">{{$message}}</span><br/>
+                    <br/> <span class="text-red-500">{{$message}}</span><br/>
+                @enderror
+                
+                <label for="url">Ajouter une image: <br/><strong>Utilisez uniquement en cas de modification.</strong></label><br/>
+                <input type="file" name="url" class="w-full" />
+                @error('url')
+                    <br/> <span class="text-red-500">{{$message}}</span><br/>
                 @enderror
             </div>
         </div>

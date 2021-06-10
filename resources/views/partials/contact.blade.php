@@ -1,5 +1,5 @@
 <!-- Contact section -->
-<div class="contact-section spad fix">
+<div id="contact" class="contact-section spad fix">
     <div class="container">
         <div class="row">
             <!-- contact info -->
@@ -40,7 +40,7 @@
                         <div class="col-sm-12">
                             <select name="subject" style="background-color:#f6edfb; width:100%; padding-top:10px; padding-bottom:10px; margin-bottom:10px;">
                                 @foreach ($sujets as $suj)
-                                    <option value="{{$suj->id}}">{{$suj->option}}</option>
+                                    <option value="{{$suj->option}}">{{$suj->option}}</option>
                                 @endforeach
                             </select>
                             @error('subject')

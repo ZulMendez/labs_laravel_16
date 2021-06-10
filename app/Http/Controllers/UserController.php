@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\LoginSender;
+use App\Mail\RegisterSender;
 use App\Mail\WelcomeSender;
 use App\Models\Genre;
 use App\Models\Poste;
@@ -58,7 +60,7 @@ class UserController extends Controller
         $user->role_id = $request->role; 
         $user->poste_id = $request->poste;
         $user->genre_id = $request->genre;
-        $user->password = Hash::make('labs2021'); 
+        $user->password = Hash::make('labs2021');
         $user->save(); 
         Mail::to($user->email)->send(new WelcomeSender($user, 'labs2021'));
         

@@ -17,10 +17,14 @@ class CarouselSeeder extends Seeder
         DB::table('carousels')->insert([
             [
                 'img' => 'img/01.jpg',
+                'titreIntro' => 'Get your freebie template now!',
+                "principal" => 1,
                 'created_at' => now(),
             ],
             [
                 'img' => 'img/02.jpg',
+                'titreIntro' => 'Get your freebie template now!',
+                "principal" => 0,
                 'created_at' => now(),
             ],
         ]);
