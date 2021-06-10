@@ -23,6 +23,8 @@ class CreateBlogsTable extends Migration
             $table->foreign('categorie_id')->references('id')->on('categories');
             $table->foreignId('user_id')->constrained()->OnDelete('cascade');
             
+            $table->boolean('validate');
+            $table->boolean('trash');
             $table->timestamps();
         });
     }

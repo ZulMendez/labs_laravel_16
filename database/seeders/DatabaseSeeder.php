@@ -34,7 +34,7 @@ class DatabaseSeeder extends Seeder
             ServiceSeeder::class,
             DiscoverSeeder::class,
             ArticleSeeder::class, 
-            // CommentSeeder::class,
+            CommentSeeder::class,
             CategorieSeeder::class,
             BlogSeeder::class,
             TagSeeder::class,

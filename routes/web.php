@@ -12,6 +12,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\TitreController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ValidateController;
 use App\Http\Controllers\VideoController;
 use App\Models\Discover;
 use App\Models\Service;
@@ -76,10 +77,33 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/admin/contact/{contact}/update', [ContactController::class, 'update'])->name('contact.update');
 
         Route::resource('/admin/blog', BlogController::class);
+
+        
     });
         Route::resource('/admin/user', UserController::class)->middleware('admin');
         Route::put('admin/user/{user}/edit', [UserController::class, 'updateMembre'])->name('membre.update');
 });
+Route::get('/admin/validate', [ValidateController::class, 'index'])->name('validate.index');
+// Valider un membre
+Route::put('/admin/validation/member/update/{id}', [ValidationController::class, 'updateUser'])->name('validateUserUpdate');
+// Supprimer un membre non-validé
+Route::delete('/admin/validate/user/{id}/delete', [ValidationController::class,'deleteUser'])->name('validateDeleteUser');
+
+// Valider un article
+Route::put('/admin/validate/update/{id}', [ValidationController::class, 'updateArticle'])->name('validateUpdateArticle');
+// Déplacer un article dans la corbeille
+Route::put('/admin/trash/article/{id}/', [TrashController::class,'trashArticle'])->name('trashArticle');
+// Récupérer un article de la corbeille
+Route::put('/admin/recup/article/{id}/', [TrashController::class,'recupArticle'])->name('recupArticle');
+
+// Commentaires
+Route::post('/blog/article/{id}/comment', [CommentController::class, "store"])->name('commentStore');
+// Valider un commentaire
+Route::put('/admin/validation/update/{id}', [CommentController::class, 'update'])->name('commentUpdate');
+// Supprimer un commentaire non-validé
+Route::delete('/admin/validate/comment/{id}/delete', [ValidationController::class,'deleteComment'])->name('validateDeleteComment');
+
+
 
 Route::middleware(['redacteur'])->group(function () {
     Route::get('/admin/blog/index', [BlogController::class, 'index'])->name('admin.blog.index');

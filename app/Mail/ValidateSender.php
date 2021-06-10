@@ -28,6 +28,6 @@ class RegisterSender extends Mailable
      */
     public function build()
     {
-        return $this->from("zumendez7@gmail.com")->markdown('mail.register')->subject('Compte validé');
+        return $this->from("zumendez7@gmail.com")->markdown('mail.validate')->subject('Compte validé');
     }
 }

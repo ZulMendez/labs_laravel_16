@@ -20,14 +20,11 @@ class ValidateController extends Controller
      */
     public function index()
     {
-         // $users = User::where('validate', 0)->get();
         $roles = Role::all();
-         // $commentaires = Comment::all();
         $commentaires = Comment::where('validate', 0)->get();
-        $articles = Blog::where('validate', 0)->where('trash', 0)->get();
+        $posts = Blog::where('validate', 0)->where('trash', 0)->get();
         $users = User::where('validate', 0)->get();
-         // $articles = Article::all();
-        return view('admin.pages.validate', compact('roles','commentaires','articles', 'users'));
+        return view('admin.pages.validate', compact('roles', 'commentaires', 'posts', 'users'));
     }
 
     /**

@@ -23,9 +23,9 @@ class CommentFactory extends Factory
     {
         return [
             "auteur"     => $this->faker->name(),
+            "email"      => $this->faker->email(),
             "message"    => $this->faker->text(50),
-            "valide"     => 1,
-            "deleted"    => 0, 
+            "validate"     => 1,
             "blog_id" => $this->faker->numberBetween(1, 3)
         ];
     }

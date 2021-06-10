@@ -15,8 +15,8 @@ class CreateBlogtagsTable extends Migration
     {
         Schema::create('blogtags', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('blog_id')->constrained('blogs');
-            $table->foreignId('tag_id')->constrained('tags');
+            $table->integer('blog_id'); 
+            $table->integer('tag_id'); 
             $table->timestamps();
         });
     }

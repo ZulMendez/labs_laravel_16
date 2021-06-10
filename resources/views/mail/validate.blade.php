@@ -5,7 +5,7 @@
 Bienvenue dans Labs !
 Votre e-mail : {{$mail->mail}}
 Votre compte est validé! Vous pouvez dès à présent modifier votre profil.
-Token pour vous connecter : /3849334
+Token pour vous connecter : /golabs
 
 {{-- @component('mail::button', ['url' => '/xy'])
 Se connecter au site
