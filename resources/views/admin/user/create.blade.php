@@ -37,6 +37,21 @@
                                     @enderror
                                 </div>
                             </div>
+                            {{-- image --}}
+                            <div class="grid grid-cols-1 md:grid-cols-1 gap-5 md:gap-8 mt-5 mx-auto">
+                                <div class="grid grid-cols-1">
+                                    <label for="img" class="font-bold">Photo</label>
+                                    <div>
+                                        <img src="{{asset('img/' . $user->img)}}" alt="photo" class="bg-gray-300 rounded-md">
+                                    </div>
+                                    <input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="file" name="img"/>
+                                </div>
+                                <div class="col w-full text-right text-red-600 font-bold">
+                                    @error('img')
+                                        {{ $message }}
+                                    @enderror
+                                </div>
+                            </div>
 
                             {{-- Role --}}
                             
@@ -74,7 +89,6 @@
                                     </select>
                                 </div>
                             </div>
-                            
                             <div class="w-full my-8 flex flex-wrap">
                                 <div class="col w-full text-center">
                                     <button class="bg-purple-500 text-white hover:bg-purple-700 collightblue font-bold py-2 px-4 rounded">Add</button>

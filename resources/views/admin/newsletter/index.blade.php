@@ -21,7 +21,7 @@
                             @endforeach
                         </table>
                     @else
-                        <p class="text-center font-bold mx-auto">Pas d'email enregistré dans la newsletter</p>
+                        <p class="text-center font-bold mx-auto my-3">Pas d'email enregistré dans la newsletter</p>
                     @endif
                 </div>
             </div>

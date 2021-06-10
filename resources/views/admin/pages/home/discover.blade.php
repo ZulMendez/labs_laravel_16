@@ -14,6 +14,7 @@
                                 @foreach ($discovers as $item)
                                 <div class="col-md-12 py-5">
                                     <p>{{$item->description}}</p>
+                                    <hr>
                                 </div>
                                 
                             </div>

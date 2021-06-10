@@ -13,13 +13,13 @@
                                 <!-- single card -->
                                 @foreach ($cards as $card)
                                 <div class="col-md-4 col-sm-6">
-                                    <div class="lab-card">
+                                    <div class="lab-card mt-3">
                                         <div class="icone">
                                             <i class="{{$card->icone}}"></i>
                                         </div>
                                         <h2>{{$card->soustitre}}</h2>
                                         <p>{{$card->description}}</p>
-                                        <button><a href="{{route('service.edit', $card->id) }}" class="w-auto bg-blue-500 hover:bg-blue-700 rounded-lg shadow-xl font-medium text-white mr-1 px-3 py-2">Edit</a></button>
+                                        <button class="my-3"><a href="{{route('service.edit', $card->id) }}" class="w-auto bg-blue-500 hover:bg-blue-700 rounded-lg shadow-xl font-medium text-white mr-1 px-3 py-2">Edit</a></button>
                                     </div>
                                 </div>
                                 @endforeach

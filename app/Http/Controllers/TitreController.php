@@ -78,13 +78,9 @@ class TitreController extends Controller
     {
         $this->authorize('webmaster', Auth::user()); 
         $request->validate([
-            "titreDiscover" => "required",
-            "titreService" => "required",
-            "titreTeam" => "required",
+            "titre" => "required",
         ]);
-        $titre->titreDiscover = $request->titreDiscover; 
-        $titre->titreService = $request->titreService;
-        $titre->titreTeam = $request->titreTeam;
+        $titre->titre = $request->titre;
         $titre->save(); 
 
         return redirect()->route('titre.index')->with('success', 'Le titre a bien été modifié'); 

@@ -44,7 +44,7 @@
                             @empty 
                             <tr>
                                 <td class="text-sm font-medium" colspan="5" >
-                                    Trash empty
+                                    <p class="text-center font-bold mx-auto my-3">Trash empty</p> 
                                 </td>
                             </tr>
                             @endforelse

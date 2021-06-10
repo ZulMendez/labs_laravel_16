@@ -12,13 +12,13 @@
         {{-- image --}}
         <div class="grid grid-cols-1 md:grid-cols-1 gap-5 md:gap-8 mt-5 mx-auto">
             <div class="grid grid-cols-1">
-                <label for="lien">Lien vidéo: </label><br/>
+                <label class="font-bold" for="lien">Lien </label><br/>
                 <input type="text" name="lien" value="{{$video->lien}}" class="w-full" /> <br/> 
                 @error('lien')
                     <br/> <span class="text-red-500">{{$message}}</span><br/>
                 @enderror
                 
-                <label for="url">Ajouter une image: <br/><strong>Utilisez uniquement en cas de modification.</strong></label><br/>
+                <label for="url"><br/><strong>Image </strong></label><br/>
                 <input type="file" name="url" class="w-full" />
                 @error('url')
                     <br/> <span class="text-red-500">{{$message}}</span><br/>

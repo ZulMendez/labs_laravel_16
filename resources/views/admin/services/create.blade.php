@@ -36,7 +36,7 @@
                         </div>
 
                         <div class="flex flex-col md:w-1/6">
-                            <input type="submit" value="Ajouter >>" class="bg-green-400 hover:bg-green-300 rounded:md" />
+                            <input type="submit" value="Ajouter" class="bg-green-400 hover:bg-green-300 rounded:md" />
                         </div>
                     </form>
                 </div>

@@ -8,33 +8,11 @@
                         @csrf
                         @method('PUT')
                         @include('layouts.flash')
-                        <div class="mt-4 flex flex-col md:w-4/6">
-                            <label class="font-bold" for="titreDiscover">Titre Discover</label>
-                            <input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" name="titreDiscover" id="desc" maxlength="200" cols="30" rows="10" style="resize:none;" type="text"/>{{$titre->titreDiscover}}
-                            <p class="text-right text-gray-400 strong"></p>
-                            @error('titreDiscover')
-                                <span class="text-red-500 font-bold">{{$message}}</span> 
-                            @enderror
+                        <div class="mt-4">
+                            <x-label for="titre" :value="__('Titre')" />
+                            <x-input id="titre" class="block mt-1 w-full" type="text" name="titre" value="{{$titre->titre}}"  required autofocus />
                         </div>
-
-                        <div class="mt-4 flex flex-col md:w-4/6">
-                            <label class="font-bold" for="titreService">Titre Service</label>
-                            <input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" name="titreService" id="desc" maxlength="200" cols="30" rows="10" style="resize:none;" type="text"/>{{$titre->titreService}}
-                            <p class="text-right text-gray-400 strong"></p>
-                            @error('titreService')
-                                <span class="text-red-500 font-bold">{{$message}}</span> 
-                            @enderror
-                        </div>
-
-                        <div class="mt-4 flex flex-col md:w-4/6">
-                            <label class="font-bold" for="titreTeam">Titre Team</label>
-                            <input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" name="titreTeam" id="desc" maxlength="200" cols="30" rows="10" style="resize:none;" type="text"/>{{$titre->titreTeam}}
-                            <p class="text-right text-gray-400 strong"></p>
-                            @error('titreTeam')
-                                <span class="text-red-500 font-bold">{{$message}}</span> 
-                            @enderror
-                        </div>
-                        <div class="flex flex-col md:w-1/6">
+                        <div class="mt-4 flex flex-col md:w-1/6">
                             <button type="submit" class="w-auto bg-purple-500 hover:bg-purple-700 rounded-lg shadow-xl font-medium text-white px-4 py-2" >Update</button>
                         </div>
                     </form>

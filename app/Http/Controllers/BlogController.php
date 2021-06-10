@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\Blogtag;
 use App\Models\Categorie;
 use App\Models\Tag;
+use Database\Seeders\BlogtagSeeder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class BlogController extends Controller
 {
@@ -27,7 +31,10 @@ class BlogController extends Controller
      */
     public function create()
     {
-        return view();
+        $posts = Blog::all();
+        $tags = Tag::all();
+        $categories = Categorie::all();
+        return view('admin.blog.create', compact('posts', 'categories', 'tags'));
     }
 
     /**
@@ -38,7 +45,40 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        request()->validate([
+            "titre" => ["required"],
+            "description" => ["required"],
+            "image" => ["required"],
+            "categorie_id" => ["required"],
+        ]);
+
+        $blog = new Blog();
+        $request->file('image')->storePublicly('img/', 'public');
+        $blog->image = $request->file('image')->hashName();
+
+        $blog->titre = $request->titre;
+        $blog->description = $request->description;
+        $blog->user_id = Auth::User()->id;
+        $blog->categorie_id = $request->categorie_id;
+
+        if (Auth::user()->role_id == 1) {
+            $blog->validate = 1;
+        } else {
+            $blog->validate = 0;
+        }
+        $blog->trash = 0;
+        $blog->save();
+        foreach ($request->input('taglist') as $value) {
+            $tag = new Blogtag();
+            $tag->blog_id = $blog->id;
+            $tag->tag_id = $value;
+            $tag->save();
+        }
+        if (Auth::user()->role_id == 2) {
+            return redirect()->back()->with('success', 'Votre article a bien été enregistré');
+        } else {
+            return redirect()->back()->with('success', 'Votre article a bien été envoyé');
+        }
     }
 
     /**
@@ -60,9 +100,11 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog)
     {
+        $this->authorize('redacteur', $blog);
         $categories = Categorie::all(); 
         $tags = Tag::all(); 
-        return view('admin.blog.edit', compact('blog', 'categories', 'tags'));
+        $blogtags = Blogtag::all()->where('post_id', $blog->id);
+        return view('admin.blog.edit', compact('blog', 'categories', 'tags', 'blogtags'));
     }
 
     /**
@@ -74,7 +116,34 @@ class BlogController extends Controller
      */
     public function update(Request $request, Blog $blog)
     {
-        //
+        $this->authorize('redacteur', $blog);
+        request()->validate([
+            "titre" => ["required"],
+            "description" => ["required"],
+            "image" => ["required"],
+            "categorie_id" => ["required"],
+        ]);
+
+        $request->file('image')->storePublicly('img/', 'public');
+        $blog->image = $request->file('image')->hashName();
+
+        $blog->titre = $request->titre;
+        $blog->description = $request->description;
+        $blog->user_id = Auth::User()->id;
+        $blog->categorie_id = $request->categorie_id;
+        $blog->validate = 0;
+
+        $blog->save();
+
+        DB::table('blogtags')->where('post_id', $blog->id)->delete();
+        foreach ($request->input('taglist') as $value) {
+            $tag = new Blogtag();
+            $tag->blog_id = $blog->id;
+            $tag->tag_id = $value;
+            $tag->save();
+        }
+        
+        return redirect()->back()->with('success', 'Modifications enregistrées, en attente de validation');
     }
 
     /**
@@ -85,6 +154,7 @@ class BlogController extends Controller
      */
     public function destroy(Blog $blog)
     {
-        //
+        $blog->delete();
+        return redirect()->route('blog.index')->with('success', "L'article a bien été supprimé");
     }
 }

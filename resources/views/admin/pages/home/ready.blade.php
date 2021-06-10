@@ -7,16 +7,17 @@
                         <h1 class="text-center text-gray-600 text-4xl m-auto">Section Ready</h1>
                     </div>
                     <!-- About contant -->
-                    <div class="about-contant">
+                    <div class="about-contant mt-4">
                         <div class="container">
+                            <h3 class="text-center text-gray-700 text-3xl m-auto">Promo</h3>
                             <div class="section-title">
                                 <div class="row">
                                     @foreach ($readies as $item)
                                     <div class="col-md-6">
-                                        <p>{{$item->titre}}</p>
+                                        <p class="text-black">{{$item->titre}}</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <p>{{$item->texte}}</p>
+                                        <p class="text-black">{{$item->texte}}</p>
                                     </div>
                                 </div>
                             </div>
