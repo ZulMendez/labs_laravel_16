@@ -3,18 +3,10 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <h3 class="text-xl m-4 text-center md:text-left">Gestion du Blog</h3>
-    
+                    <h3 class="text-4xl m-2 text-center text-gray-600">Page Blog</h3>
                     <ul class="flex justify-center">
-                        <li class="m-3 p-3 bg-green-400 hover:bg-green-600">Ajouter un article</li>
+                        <a href="{{route('service.create')}}" class="bg-green-400 hover:bg-green-500 m-2 py-2 text-white font-bold hover:text-black px-4 rounded-sm">Add post</a>
                     </ul>
-
-                    <fieldset class="w-full md:w-3/6 border-gray-400 bg-gray-200 p-3 my-5 text-left rounded">
-                        <legend class="underline">!! Notes importante:</legend>
-                        <p><button class="bg-green-500 p-1 m-1  rounded">S</button> - Regarde l'article en détails </p>
-                        <p><button class="bg-yellow-500 p-1 m-1  rounded" >M</button> - Modifie l'article </p>
-                        <p><button class="bg-red-500 p-1 m-1  rounded" >X</button> - Supprime l'article</p>
-                    </fieldset> 
 
                     <table class="w-full">
                         <tr class="underline">

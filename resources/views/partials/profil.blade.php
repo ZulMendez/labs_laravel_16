@@ -37,7 +37,7 @@
         </div>
         <!-- FORMULAIRE EDIT -->
         @if (Auth::user()->role_id == 1)
-        <form action="{{ route('user.update', Auth::id() ) }}" method="post"
+        <form action="{{ route('membre.update', Auth::id() ) }}" method="post"
             class="grid bg-white rounded-lg shadow-xl  col-span-2 w-10/12 mx-auto">
             @else
             <form action="{{ route('membre.update', Auth::id() ) }}" method="post"
@@ -102,11 +102,11 @@
                 {{-- image --}}
                 <div class="grid grid-cols-1 md:grid-cols-1 gap-5 md:gap-8 mt-5 mx-auto">
                     <div class="grid grid-cols-1">
-                        <label for="img" class="font-bold">Photo</label>
+                        <label for="newimage" class="font-bold">Photo</label>
                         <div>
-                            {{-- <img src="{{asset('img/' . $user->img)}}" alt="photo" class="bg-gray-300 rounded-md"> --}}
+                            <img src="{{asset($user[0]->img)}}" alt="photo" class="bg-gray-300 rounded-md">
                         </div>
-                        <input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="file" name="img"/>
+                        <input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="file" name="newimage"/>
                     </div>
                 </div>
 

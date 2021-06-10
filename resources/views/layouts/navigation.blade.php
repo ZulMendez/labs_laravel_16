@@ -1,13 +1,13 @@
-<nav class="flex flex-col bg-purple-600 w-84 max-h-full px-4 tex-black border border-purple-600">
+<nav class="flex flex-col bg-purple-500 w-84 max-h-full px-4 tex-black border border-purple-600">
     <div class="flex flex-wrap mt-8">
         <div class="w-1/2">
             <img src="{{ asset(Auth::user()->img) }}" class="mx-auto w-20 h-20 rounded-full" />
         </div>
         <div class="w-1/2 mt-2 text-right">
-            <span class="font-semibold text-white">{{ Auth::user()->nom }} {{ Auth::user()->email }}</span>
+            <span class="font-semibold text-black">{{ Auth::user()->nom }} {{ Auth::user()->email }}</span>
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
-                <button class="bg-red-500 hover:bg-red-800 text-white font-bold py-2 px-3 rounded">Logout</button>
+                <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-3 rounded">Logout</button>
 
             </form>
         </div>
@@ -17,7 +17,7 @@
         <ul class="ml-4">
             {{-- dashboard --}}
             <li
-                class="mb-2 px-4 py-4 text-gray-100 flex flex-row  border-gray-300 hover:text-black   hover:bg-gray-300  hover:font-bold rounded rounded-lg">
+                class="mb-2 px-4 py-4 text-black flex flex-row border-gray-300 hover:text-black hover:bg-purple-800 hover:font-bold rounded rounded-lg">
                 <span>
                     <svg class="fill-current h-5 w-5 " viewBox="0 0 24 24">
                         <path d="M16 20h4v-4h-4m0-2h4v-4h-4m-6-2h4V4h-4m6
@@ -25,13 +25,14 @@
                     4h4v-4h-4M4 8h4V4H4v4z"></path>
                     </svg>
                 </span>
-                <a class="text-gray-100 hover:text-black hover:font-bold" href="{{ route('dashboard') }}">
+                <a class="text-black hover:text-black font-bold" href="{{ route('dashboard') }}">
                     <span class="ml-2">Dashboard</span>
                 </a>
             </li>
             @Webmaster
+
             <!-- VALIDATE -->
-            <li class="mb-2 px-4 py-2 text-gray-100 flex flex-row  border-gray-300  hover:text-black   hover:bg-gray-300  hover:font-bold rounded rounded-lg">
+            <li class="mb-2 px-4 py-4 text-black flex flex-row border-gray-300 hover:text-black hover:bg-purple-800 hover:font-bold rounded rounded-lg">
                 <span>
                     <svg class="fill-current h-5 w-5 " viewBox="0 0 24 24" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
@@ -43,14 +44,14 @@
                             fill="currentColor" />
                     </svg>
                 </span>
-                <a class="text-gray-100 hover:text-black hover:font-bold" href="{{route('validate.index')}}">
+                <a class="text-black hover:text-black font-bold" href="{{route('validate.index')}}">
                     <span class="ml-2">Validate</span>
                 </a>
             </li>
             
             {{-- Home --}}
             <li
-                class="mb-2 px-4 py-4 text-gray-100 flex flex-row border-gray-300 hover:text-black hover:bg-gray-300  hover:font-bold rounded rounded-lg">
+                class="mb-2 px-4 py-4 text-black flex flex-row border-gray-300 hover:text-black hover:bg-purple-800 hover:font-bold rounded rounded-lg">
                 <span>
                     <svg class="fill-current h-5 w-5 " viewBox="0 0 24 24" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
@@ -65,27 +66,29 @@
                 
                 <span class="ml-2">Home
                     <li class="ml-14">
-                        <a class="text-gray-100 hover:text-black hover:font-bold" href="{{ route('titre.index') }}">Titres
+                        <a class="text-black hover:text-black font-bold" href="{{ route('titre.index') }}">Titres
                     </li>
                     <li class="ml-14">
-                        <a class="text-gray-100 hover:text-black hover:font-bold" href="{{ route('homecard.index') }}">Cards
+                        <a class="text-black hover:text-black font-bold" href="{{ route('homecard.index') }}">Cards
                     </li>
                     <li class="ml-14">
-                        <a class="text-gray-100 hover:text-black hover:font-bold" href="{{ route('discover.index') }}">Discover
+                        <a class="text-black hover:text-black font-bold" href="{{ route('discover.index') }}">Discover
                     </li>
                     <li class="ml-14">
-                        <a class="text-gray-100 hover:text-black hover:font-bold" href="{{ route('video.index') }}">Video
+                        <a class="text-black hover:text-black font-bold" href="{{ route('video.index') }}">Video
                     </li>
                     <li class="ml-14">
-                        <a class="text-gray-100 hover:text-black hover:font-bold" href="{{ route('testimonial.index') }}">Testimonial
+                        <a class="text-black hover:text-black font-bold" href="{{ route('testimonial.index') }}">Testimonial
                     </li>
                     <li class="ml-14">
-                        <a class="text-gray-100 hover:text-black hover:font-bold" href="{{ route('ready.index') }}">Ready
+                        <a class="text-black hover:text-black font-bold" href="{{ route('ready.index') }}">Ready
                     </li>
                 </span>
             </li>
+
+            {{-- users --}}
             <li
-                class="mb-2 px-4 py-4 text-gray-100 flex flex-row  border-gray-300  hover:text-black   hover:bg-gray-300  hover:font-bold rounded rounded-lg">
+                class="mb-2 px-4 py-4 text-black flex flex-row border-gray-300 hover:text-black hover:bg-purple-800 hover:font-bold rounded rounded-lg">
                 {{ request()->routeIs('users.index') == true ? 'bg-gray-300 text-black font-bold' : ''}}
                 <span>
                     <svg class="fill-current h-5 w-5 " viewBox="0 0 24 24" fill="none"
@@ -98,13 +101,13 @@
                             fill="currentColor" />
                     </svg>
                 </span>
-                <a class="text-gray-100 hover:text-black hover:font-bold" href="{{ route('user.index') }}">
+                <a class="text-black hover:text-black font-bold" href="{{ route('user.index') }}">
                     <span class="ml-2">Users</span>
                 </a>
             </li>
 
             <li
-                class="mb-2 px-4 py-4 text-gray-100 flex flex-row  border-gray-300 hover:text-black hover:bg-gray-300  hover:font-bold rounded rounded-lg">
+                class="mb-2 px-4 py-4 text-black flex flex-row border-gray-300 hover:text-black hover:bg-purple-800 hover:font-bold rounded rounded-lg">
                 <span>
                     <svg class="fill-current h-5 w-5 " viewBox="0 0 24 24">
                         <path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2
@@ -112,14 +115,14 @@
                     00-2-2h-1V1m-1 11h-5v5h5v-5z"></path>
                     </svg>
                 </span>
-                <a class="text-gray-100 hover:text-black hover:font-bold" href="{{ route('newsletter.index') }}">
+                <a class="text-black hover:text-black font-bold" href="{{ route('newsletter.index') }}">
 
                     <span class="ml-2">Newsletter</span>
                 </a>
             </li>
 
             <li
-                class="mb-2 px-4 py-4 text-gray-100 flex flex-row  border-gray-300 hover:text-black hover:bg-gray-300  hover:font-bold rounded rounded-lg">
+                class="mb-2 px-4 py-4 text-black flex flex-row border-gray-300 hover:text-black hover:bg-purple-800 hover:font-bold rounded rounded-lg">
                 <span>
                     <svg class="fill-current h-5 w-5" viewBox="0 0 24 24">
                         <path d="M12 4a4 4 0 014 4 4 4 0 01-4 4 4 4 0 01-4-4 4 4 0
@@ -127,14 +130,32 @@
                     8-4z"></path>
                     </svg>
                 </span>
-                <a class="text-gray-100 hover:text-black hover:font-bold" href="{{ route('service.index') }}">
+                <a class="text-black hover:text-black font-bold" href="{{ route('service.index') }}">
                     <span class="ml-2">Services</span>
+                </a>
+            </li>
+
+            {{-- trash --}}
+            <li class="mb-2 px-4 py-4 text-black flex flex-row border-gray-300 hover:text-black hover:bg-purple-800 hover:font-bold rounded rounded-lg">
+                <span>
+                    <svg class="fill-current h-5 w-5 " viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M7 3C8.86384 3 10.4299 4.27477 10.874 6H19V8H10.874C10.4299 9.72523 8.86384 11 7 11C4.79086 11 3 9.20914 3 7C3 4.79086 4.79086 3 7 3ZM7 9C8.10457 9 9 8.10457 9 7C9 5.89543 8.10457 5 7 5C5.89543 5 5 5.89543 5 7C5 8.10457 5.89543 9 7 9Z"
+                            fill="currentColor" />
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M17 20C15.1362 20 13.5701 18.7252 13.126 17H5V15H13.126C13.5701 13.2748 15.1362 12 17 12C19.2091 12 21 13.7909 21 16C21 18.2091 19.2091 20 17 20ZM17 18C18.1046 18 19 17.1046 19 16C19 14.8954 18.1046 14 17 14C15.8954 14 15 14.8954 15 16C15 17.1046 15.8954 18 17 18Z"
+                            fill="currentColor" />
+                    </svg>
+                </span>
+                <a class="text-black hover:text-black font-bold" href="{{route('trash.index')}}">
+                    <span class="ml-2">Trash</span>
                 </a>
             </li>
             @endWebmaster
             @Redacteur
             <li
-                class="mb-2 px-4 py-4 text-gray-100 flex flex-row  border-gray-300 hover:text-black   hover:bg-gray-300  hover:font-bold rounded rounded-lg">
+                class="mb-2 px-4 py-4 text-black flex flex-row border-gray-300 hover:text-black hover:bg-purple-800 hover:font-bold rounded rounded-lg">
                 <span>
                     <svg class="fill-current h-5 w-5 " viewBox="0 0 24 24">
                         <path d="M12 13H7v5h5v2H5V10h2v1h5v2M8
@@ -142,14 +163,14 @@
                     9v2h-4v-2h4m2-2h-8v6h8v-6z"></path>
                     </svg>
                 </span>
-                <a class="text-gray-100 hover:text-black hover:font-bold" href="{{ route('blog.index') }}">
+                <a class="text-black hover:text-black font-bold" href="{{ route('blog.index') }}">
                     <span class="ml-2">Blog</span>
                 </a>
             </li>
             @endRedacteur
             @Webmaster
             <li
-                class="mb-2 px-4 py-4 text-gray-100 flex flex-row  border-gray-300 hover:text-black   hover:bg-gray-300  hover:font-bold rounded rounded-lg">
+                class="mb-2 px-4 py-4 text-black flex flex-row border-gray-300 hover:text-black hover:bg-purple-800 hover:font-bold rounded rounded-lg">
                 <span>
                     <svg class="fill-current h-5 w-5" viewBox="0 0 24 24">
                         <path d="M12 4a4 4 0 014 4 4 4 0 01-4 4 4 4 0 01-4-4 4 4 0
@@ -157,7 +178,7 @@
                     8-4z"></path>
                     </svg>
                 </span>
-                <a class="text-gray-100 hover:text-black hover:font-bold" href="{{ route('contact.index')}}">
+                <a class="text-black hover:text-black font-bold" href="{{ route('contact.index')}}">
                     <span class="ml-2">Contact</span>
                 </a>
             </li>
