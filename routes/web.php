@@ -91,12 +91,12 @@ Route::middleware(['auth'])->group(function () {
         // validate
         Route::get('/admin/validate', [ValidateController::class, 'index'])->name('validate.index');
         // Valider un membre
-        Route::put('/admin/validation/member/update/{id}', [ValidationController::class, 'updateUser'])->name('validateUserUpdate');
+        Route::put('/admin/validation/member/update/{id}', [ValidateController::class, 'updateUser'])->name('validateUserUpdate');
         // Supprimer un membre non-validé
-        Route::delete('/admin/validate/user/{id}/delete', [ValidationController::class,'deleteUser'])->name('validateDeleteUser');
+        Route::delete('/admin/validate/user/{id}/delete', [ValidateController::class,'deleteUser'])->name('validateDeleteUser');
 
         // article
-        Route::put('/admin/validate/update/{id}', [ValidationController::class, 'updateArticle'])->name('validateUpdateArticle');
+        Route::put('/admin/validate/update/{id}', [ValidateController::class, 'updateArticle'])->name('validateUpdateArticle');
         // Déplacer un article dans la corbeille
         Route::put('/admin/trash/article/{id}/', [TrashController::class,'trashArticle'])->name('trashArticle');
         // Récupérer un article de la corbeille
@@ -107,7 +107,7 @@ Route::middleware(['auth'])->group(function () {
         // Valider un commentaire
         Route::put('/admin/validation/update/{id}', [CommentController::class, 'update'])->name('commentUpdate');
         // Supprimer un commentaire non-validé
-        Route::delete('/admin/validate/comment/{id}/delete', [ValidationController::class,'deleteComment'])->name('validateDeleteComment');
+        Route::delete('/admin/validate/comment/{id}/delete', [ValidateController::class,'deleteComment'])->name('validateDeleteComment');
 
     });
         Route::resource('/admin/user', UserController::class)->middleware('admin');

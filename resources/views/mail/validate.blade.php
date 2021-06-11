@@ -3,7 +3,7 @@
 
 {{-- The body of your message. --}}
 Bienvenue dans Labs !
-Votre e-mail : {{$mail->mail}}
+Votre e-mail : {{$mail->email}}
 Votre compte est validé! Vous pouvez dès à présent modifier votre profil.
 Token pour vous connecter : /golabs
 
