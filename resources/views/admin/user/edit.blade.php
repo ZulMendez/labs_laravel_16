@@ -1,7 +1,7 @@
 <x-app-layout>
     @if (Auth::user()->role_id <= 2 || Auth::user()->id == $user->id)
-    <form action="{{ route('user.update', $user->id) }}" method="post"
-        class="grid bg-white rounded-lg shadow-xl  col-span-2 w-10/12 mx-auto">
+    <form enctype="multipart/form-data" action="{{ route('user.update', $user->id) }}" method="post"
+        class="grid bg-white rounded-lg shadow-xl col-span-2 w-10/12 mx-auto">
         @csrf
         @method('PUT')
         @include('layouts.flash')
@@ -63,12 +63,16 @@
 
         {{-- image --}}
         <div class="grid grid-cols-1 md:grid-cols-1 gap-5 md:gap-8 mt-5 mx-auto">
-            <div class="grid grid-cols-1">
-                <label for="img" class="font-bold">Photo</label>
+            <div class="col w-3/6  flex justify-center items-center">
+                <label class="font-bold" for="img">Image:</label> 
+            </div>
+            <div class="col w-3/6">
                 <div>
-                    <img src="{{asset('img/' . $user->img)}}" alt="photo" class="bg-gray-300 rounded-md">
+                    <img src="{{asset($user->img)}}" alt="photo" class="bg-gray-300 rounded-md">
                 </div>
-                <input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="file" name="img"/>
+                <div class="text-center">
+                    <input type="file" name="newimage" />
+                </div>
             </div>
         </div>
 
@@ -79,6 +83,6 @@
         </div>
     </form>
     @else 
-        refusé
+        Accés refusé
     @endif
 </x-app-layout>

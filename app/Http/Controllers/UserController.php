@@ -112,7 +112,7 @@ class UserController extends Controller
         $request->validate([
             "nom"       => "required",  
             "email"     => "required",
-            "img" => "required",
+            // "img" => "required",
         ]);
 
         $user->nom      = $request->nom; 
@@ -120,10 +120,10 @@ class UserController extends Controller
         $user->role_id = $request->role_id; 
         $user->poste_id = $request->poste_id;
 
-        // if($request->file('img') != NULL){
-            $request->file('img')->storePublicly('img/', 'public');
-            $user->img = $request->file('img')->hashName();
-        // }
+        if($request->file('newimage') != NULL){
+            $request->file('newimage')->storePublicly('img/team/', 'public');
+            $user->img = "img/team/". $request->file('newimage')->hashName();
+        }
         $user->save();
         return redirect()->back()->with('success', 'Profil bien modifié');
     }
@@ -133,13 +133,13 @@ class UserController extends Controller
         $request->validate([
             'nom' => 'required|string|max:255',
             'email' => 'required|string',
-            // 'photo_id' => 'required',
+            // 'img' => 'required',
         ]);
         $user->nom = $request->nom;
         $user->email = $request->email;
-        if($request->file('img') != NULL){
-            $request->file('img')->storePublicly('img/', 'public');
-            $user->img = $request->file('img')->hashName();
+        if($request->file('newimage') != NULL){
+            $request->file('newimage')->storePublicly('img/team/', 'public');
+            $user->img = "img/team/". $request->file('newimage')->hashName();
         }
 
         $user->save();

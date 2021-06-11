@@ -75,12 +75,11 @@ class VideoController extends Controller
         $this->authorize('webmaster', Auth::user()); 
         $request->validate([
             "lien" => "required",
-            "url" => ['required', 'max:2048'],
-            
+            // "url" => ['required', 'max:2048'],
         ]);
         if($request->hasFile('url')){
-            $request->file('url')->storePublicly('img/','public');
-            $video->url = "img/video/" . $request->file('url')->hashName();
+            $request->file('imgvideo')->storePublicly('img/','public');
+            $video->url = "img/" . $request->file('imgvideo')->hashName();
         } 
         $video->lien = $request->lien;
         $video->save(); 

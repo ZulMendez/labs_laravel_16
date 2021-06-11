@@ -1,6 +1,6 @@
 <x-app-layout>
     <form action="{{ route('video.update', $video->id) }}" method="post"
-        class="grid bg-white rounded-lg shadow-xl  col-span-2 w-10/12 mx-auto">
+        class="grid bg-white rounded-lg shadow-xl  col-span-2 w-10/12 mx-auto" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         @include('layouts.flash')
@@ -18,9 +18,10 @@
                     <br/> <span class="text-red-500">{{$message}}</span><br/>
                 @enderror
                 
-                <label for="url"><br/><strong>Image </strong></label><br/>
-                <input type="file" name="url" class="w-full" />
-                @error('url')
+                <label for="imgvideo"><br/><strong>Image </strong></label><br/>
+                <img src="{{asset($video->url)}}" alt="">
+                <input type="file" name="imgvideo" class="w-full" />
+                @error('imgvideo')
                     <br/> <span class="text-red-500">{{$message}}</span><br/>
                 @enderror
             </div>

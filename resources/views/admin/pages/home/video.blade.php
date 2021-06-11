@@ -11,7 +11,7 @@
                         <div class="row">
                             @foreach ($video as $item)
                             <div class="col-md-6 col-md-offset-2">
-                                <img src="{{asset('img/' . $item->url)}}" alt="">
+                                <img src="{{asset($item->url)}}" alt="">
                                 <a href="{{$item->lien}}" class="video-popup">
                                     <i class="fa fa-play"></i>
                                 </a>

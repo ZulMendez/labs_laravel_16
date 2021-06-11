@@ -38,11 +38,10 @@
         <!-- FORMULAIRE EDIT -->
         @if (Auth::user()->role_id == 1)
         <form action="{{ route('membre.update', Auth::id() ) }}" method="post"
-            class="grid bg-white rounded-lg shadow-xl  col-span-2 w-10/12 mx-auto">
+            class="grid bg-white rounded-lg shadow-xl  col-span-2 w-10/12 mx-auto" enctype="multipart/form-data">
             @else
             <form action="{{ route('membre.update', Auth::id() ) }}" method="post"
                 class="grid bg-white rounded-lg shadow-xl col-span-2 w-10/12 mx-auto">
-
                 @endif
                 @csrf
                 @method('PUT')
@@ -52,8 +51,6 @@
                         <h1 class="text-gray-600 font-bold md:text-2xl text-xl">Edit your profil</h1>
                     </div>
                 </div>
-
-
                 <div class="grid grid-cols-1 md:grid-cols-1 gap-5 md:gap-8 mt-5 mx-7">
                     <div class="grid grid-cols-1">
                         <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Nom</label>
@@ -102,7 +99,7 @@
                 {{-- image --}}
                 <div class="grid grid-cols-1 md:grid-cols-1 gap-5 md:gap-8 mt-5 mx-auto">
                     <div class="grid grid-cols-1">
-                        <label for="newimage" class="font-bold">Photo</label>
+                        <label for="img" class="font-bold">Photo</label>
                         <div>
                             <img src="{{asset($user[0]->img)}}" alt="photo" class="bg-gray-300 rounded-md">
                         </div>
